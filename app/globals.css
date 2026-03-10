@@ -156,3 +156,12 @@ body {
     margin: 0 auto;
   }
 }
+
+.product-card {
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.product-card:hover {
+  transform: translateY(-8px);
+}

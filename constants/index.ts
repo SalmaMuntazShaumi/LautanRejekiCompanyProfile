@@ -53,3 +53,26 @@ export const VALUES_DATA = [
   { label: "Inovatif", icon: Lightbulb },
   { label: "Aman", icon: ShieldCheck },
 ];
+
+export const ALL_PRODUCTS = [
+  { id: 1, name: "Pipa PVC - Standard", img: "/images/product_rucika/standard.png", brand: "Rucika" },
+  { id: 2, name: "Pipa PVC - JIS", img: "/images/product_rucika/jis.png", brand: "Rucika" },
+  { id: 3, name: "Pipa PVC - Safe (SNI)", img: "/images/product_rucika/sni.png", brand: "Rucika" },
+  { id: 4, name: "Pipa PP-R", img: "/images/product_rucika/kelen.png", brand: "Rucika" },
+  { id: 5, name: "Pipa HDPE", img: "/images/product_rucika/hdpe.png", brand: "Rucika" },
+  { id: 6, name: "Pipa Exoplas", img: "/images/product_rucika/exoplas.png", brand: "Rucika" },
+  { id: 7, name: "Fitting PVC - JIS", img: "/images/product_rucika/fitting_jis.png", brand: "Rucika" },
+  { id: 8, name: "Fitting PP-R", img: "/images/product_rucika/fitting_kelen.png", brand: "Rucika" },
+  { id: 9, name: "Fitting HDPE", img: "/images/product_rucika/fitting_hdpe.png", brand: "Rucika" },
+
+  { id: 10, name: "Pipa HDPE Double Wall Corrugaated", img: "/images/product_shuanglin/double_wall.png", brand: "Shuanglin" },
+  { id: 11, name: "Pipa Spiral HDPE", img: "/images/product_shuanglin/spiral_hdpe.png", brand: "Shuanglin" },
+  { id: 12, name: "Pipa HDPE/PP Single Wall", img: "/images/product_shuanglin/single_wall.png", brand: "Shuanglin" },
+
+  { id: 13, name: "Low Voltage Cables (Copper)", img: "/images/product_extrana/copper.png", brand: "Extrana" },
+  { id: 14, name: "Low Voltage Cables (Aluminuim)", img: "/images/product_extrana/alumunium.png", brand: "Extrana" },
+  { id: 15, name: "Instrument & Control Cables", img: "/images/product_extrana/control.png", brand: "Extrana" },
+  { id: 16, name: "Overhead Conductors", img: "/images/product_extrana/conductors.png", brand: "Extrana" },
+  { id: 17, name: "Fire Resistant Cables", img: "/images/product_extrana/fire_resistant.png", brand: "Extrana" },
+  { id: 18, name: "Medium Voltage Cables", img: "/images/product_extrana/medium-voltage.png", brand: "Extrana" },
+];
