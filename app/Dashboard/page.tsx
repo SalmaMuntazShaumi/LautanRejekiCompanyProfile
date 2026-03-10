@@ -25,7 +25,7 @@ export default function Dashboard({ data }: { data: any }) {
 
       {/* --- QUICK LINKS --- */}
       <section style={{ padding: '2rem 5%', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '2rem' }}>
-        <QuickLinkCard href="/produk" title="Lihat produk" icon={<Package2 size={42} color="#fff"/>} desc="Katalog produk terbaru kami." />
+        <QuickLinkCard href="/Product" title="Lihat produk" icon={<Package2 size={42} color="#fff"/>} desc="Katalog produk terbaru kami." />
         <QuickLinkCard href="/About" title="Tentang" icon={<Info size={42} color="#fff"/>} desc="Visi misi perusahaan kami." />
         <QuickLinkCard href="/Contact" title="Kontak" icon={<Contact size={42} color="#fff"/>} desc="Konsultasi proyek anda." />
       </section>

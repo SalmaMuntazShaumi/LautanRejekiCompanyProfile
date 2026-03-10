@@ -54,7 +54,7 @@ export default function RootLayout({
                   <ul style={{ display: 'flex', gap: '2rem', listStyle: 'none', fontWeight: 500 }}>
                     <li><Link href="/">Beranda</Link></li>
                     <li><Link href="/About">Tentang</Link></li>
-                    <li><Link href="/produk">Produk</Link></li>
+                    <li><Link href="/Product">Produk</Link></li>
                     <li><Link href="/Contact">Kontak</Link></li>
                   </ul>
                 </nav>
