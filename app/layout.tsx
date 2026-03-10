@@ -1,6 +1,24 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { Poppins } from "next/font/google";
+import {Montserrat} from "next/font/google";
 import "./globals.css";
+import { FaFacebook, FaInstagram, FaWhatsapp, FaYoutube } from "react-icons/fa";
+import { AiFillTikTok } from "react-icons/ai";
+import Link from "next/link";
+import Image from "next/image";
+import { ChevronDown } from "lucide-react";
+
+
+const poppins = Poppins({ 
+  subsets: ["latin"], 
+  weight: ['400', '500', '600', '700'] 
+});
+
+const montserrat = Montserrat({ 
+  subsets: ["latin"], 
+  weight: ['400', '500', '600', '700'] 
+});
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -24,11 +42,53 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
-      </body>
+      <body className={montserrat.className}>
+        {/* --- HEADER --- */}
+              <header style={{ 
+                display: 'flex', justifyContent: 'space-between', alignItems: 'center', 
+                padding: '1rem 5%', borderBottom: '1px solid #eee', backgroundColor: 'white',
+                position: 'sticky', top: 0, zIndex: 100
+              }}>
+                <Image src="/images/logo.png" alt="Logo" width={180} height={62} priority />
+                <nav>
+                  <ul style={{ display: 'flex', gap: '2rem', listStyle: 'none', fontWeight: 500 }}>
+                    <li><Link href="/">Beranda</Link></li>
+                    <li><Link href="/About">Tentang</Link></li>
+                    <li><Link href="/produk">Produk</Link></li>
+                    <li><Link href="/Contact">Kontak</Link></li>
+                  </ul>
+                </nav>
+              </header>
+            {children}
+            {/* --- FOOTER --- */}
+      <footer style={{ backgroundColor: '#D9D9D9', padding: '4rem 5%' }}>
+        <div style={{ display: 'flex', gap: '3rem', marginBottom: '2rem', fontWeight: '600' }}>
+          <Link href="/" style={{ color: '#FF3B30' }}>Beranda</Link>
+          <Link href="/About" style={{ color: '#000' }}>Tentang</Link>
+          <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>Produk <ChevronDown size={16}/></span>
+        </div>
+        <div style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: '2rem' }}>
+          <div>
+            <h3 style={{ fontWeight: 'bold', margin: '0 0 10px 0' }}>PT LAUTAN REJEKI</h3>
+            <p style={{ lineHeight: '1.6', margin: 0 }}>
+              Jl. Meruya Ilir Raya No.1 4, RT.4/RW.1, Srengseng,<br />
+              Kec. Kembangan, Jakarta Barat 11630
+            </p>
+          </div>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1rem' }}>
+            <SocialIcon icon={<FaWhatsapp size={35} />} />
+            <SocialIcon icon={<FaInstagram size={35} />} />
+            <SocialIcon icon={<FaFacebook size={35} />} />
+            <SocialIcon icon={<FaYoutube size={35} />} />
+            <SocialIcon icon={<AiFillTikTok size={35} />} />
+          </div>
+        </div>
+      </footer>
+        </body>
     </html>
   );
 }
+
+const SocialIcon = ({ icon }: { icon: React.ReactNode }) => (
+  <Link href="#" style={{ color: 'black' }}>{icon}</Link>
+);
