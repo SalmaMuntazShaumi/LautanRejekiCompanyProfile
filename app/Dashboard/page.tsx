@@ -31,19 +31,15 @@ export default function Dashboard({ data }: { data: any }) {
       </section>
 
       {/* --- KATEGORI PRODUK --- */}
-        <section style={{ padding: '4rem 5%', textAlign: 'center' }}>
-        <h2 className="section-title">Kategori Produk</h2>
-        <div style={{ 
-            display: 'grid', 
-            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', 
-            gap: '2rem', 
-            marginTop: '2rem' 
-        }}>
-            {CATEGORIES.map((cat) => (
-            <CategoryCard key={cat.name} {...cat} />
-            ))}
-        </div>
-        </section>
+    <section className="category-section" style={{ padding: '4rem 5%', textAlign: 'center' }}>
+      <h2 className="section-title">Kategori Produk</h2>
+      
+      <div className="category-grid">
+        {CATEGORIES.map((cat) => (
+          <CategoryCard key={cat.name} {...cat} />
+        ))}
+      </div>
+    </section>
 
       {/* --- SEGMENTASI PASAR --- */}
       <section style={{ padding: '2rem 5%', textAlign: 'center', backgroundColor: '#fff' }}>
