@@ -1,0 +1,7 @@
+@import "tailwindcss";
+
+/* Urutan menentukan prioritas: Base -> Components -> Cards -> Responsive */
+@import "./base.css";
+@import "./components.css";
+@import "./cards.css";
+@import "./responsive.css";
