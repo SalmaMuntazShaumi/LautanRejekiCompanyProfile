@@ -244,3 +244,24 @@ body {
     margin: 0 auto;
   }
 }
+
+/* app/globals.css */
+
+.product-grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+}
+
+@media (max-width: 600px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr); /* Menjadi 2 kolom di HP */
+    gap: 1rem; /* Jarak antar kartu lebih rapat di HP agar muat */
+    padding: 0 10px;
+  }
+  
+  .product-card-text {
+    font-size: 12px !important; /* Perkecil font di HP agar tidak terpotong */
+    height: 50px !important;
+  }
+}
