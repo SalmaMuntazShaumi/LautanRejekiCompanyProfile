@@ -1,0 +1,211 @@
+  @media (max-width: 768px) {
+    /* --- NAVBAR MOBILE --- */
+    .main-header {
+      padding: 0 5% !important;
+      height: 70px !important;
+    }
+
+    .desktop-nav {
+      display: none !important; /* Pastikan tulisan menu hilang */
+    }
+
+    .mobile-menu-btn {
+      display: block !important; /* Munculkan garis tiga */
+    }
+
+    .mobile-menu-overlay {
+      position: fixed;
+      top: 70px;
+      left: 0;
+      width: 100%;
+      background: white;
+      padding: 2rem 0;
+      box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+      z-index: 999;
+    }
+
+    .mobile-nav-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    /* --- GRID 2 KOLOM (Kategori, Segmentasi, Produk) --- */
+    .category-grid, 
+    .segmentation-grid, 
+    .product-grid {
+      grid-template-columns: repeat(2, 1fr) !important; /* PAKSA 2 KOLOM */
+      gap: 12px !important;
+      padding: 0 10px !important;
+      font-size: smaller;
+    }
+
+    /* --- UKURAN CARD HP --- */
+    .card-container, 
+    .category-card {
+      height: 180px !important; /* Perkecil tinggi agar proporsional */
+    }
+
+    .category-image-container, 
+    .product-image-container {
+      height: 130px !important; /* Gambar lebih pendek di HP */
+    }
+
+    .product-card-text {
+      height: 50px !important;
+      font-size: 11px !important;
+    }
+
+    .category-name {
+      font-size: 14px !important;
+    }
+
+    /* --- FOOTER MOBILE --- */
+    .main-footer {
+      padding: 2rem 5% !important;
+    }
+
+    /* Link navigasi footer dibuat wrap (bungkus) kalau nggak muat, biar tetep ke samping */
+    .footer-links-row {
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem !important;
+      font-size: 14px;
+    }
+
+    /* Balikin footer content biar nggak maksa column kaku */
+    .footer-main-content {
+      flex-direction: column !important; /* Tetap column di HP biar muat, tapi kita benerin alignmentnya */
+      align-items: center !important;
+      text-align: center;
+      gap: 1.5rem !important;
+    }
+
+    .footer-address p {
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .footer-socials {
+      justify-content: center;
+      width: 100%;
+    }
+
+    /* Kecilin icon dikit buat HP */
+    .footer-socials svg {
+      width: 28px !important;
+      height: 28px !important;
+    }
+
+    /* Quick Link Card mengecil di HP */
+    .quick-link-card {
+      padding: 1.2rem !important; /* Padding jauh lebih kecil */
+    }
+
+    .quick-link-card h3 {
+      font-size: 1.1rem !important;
+      margin: 0.5rem 0 !important;
+    }
+
+    .quick-link-card p {
+      font-size: 0.8rem !important;
+      line-height: 1.3;
+    }
+
+    /* Jika Quick Link berada dalam grid, pastikan jadi 1 atau 2 kolom sesuai selera */
+    /* Biasanya untuk Quick Link, 1 kolom lebih enak dibaca di HP */
+    .quick-link-grid {
+      gap: 1rem !important;
+    }
+
+    /* Jika kamu ingin icon-nya ikut mengecil */
+    .quick-link-icon svg {
+      width: 32px !important;
+      height: 32px !important;
+    }
+
+    /* Perkecil jarak antar tombol */
+    .tab-filter-container {
+      gap: 0.5rem !important;
+      margin-bottom: 2rem !important;
+      padding: 0 10px;
+    }
+
+    /* Perkecil ukuran tombol dan teksnya */
+    .tab-button {
+      padding: 8px 16px !important; /* Padding lebih tipis */
+      font-size: 13px !important;    /* Teks lebih kecil */
+      border-radius: 8px !important;
+    }
+
+      .values-section {
+      padding: 3rem 5% !important;
+    }
+
+    .values-grid {
+      /* Kita ubah dari Flex ke Grid agar gampang bagi 2 kolom di HP */
+      display: grid !important;
+      grid-template-columns: repeat(2, 1fr) !important; 
+      gap: 1rem !important;
+    }
+
+    .value-card {
+      padding: 1.2rem !important; /* Padding jauh lebih kecil */
+      min-height: 160px !important; /* Tinggi dikurangi */
+      border-radius: 15px !important;
+      box-shadow: 4px 4px 0px rgba(0,0,0,0.1) !important; /* Shadow lebih tipis */
+    }
+
+    .value-icon svg {
+      width: 30px !important;
+      height: 30px !important;
+      margin-bottom: 0.5rem !important;
+    }
+
+    .value-card h3 {
+      font-size: 1rem !important; /* Judul lebih kecil */
+      margin-bottom: 0.4rem !important;
+    }
+
+    .value-card p {
+      font-size: 0.8rem !important; /* Deskripsi lebih kecil */
+      line-height: 1.3 !important;
+    }
+
+    .visi-misi-section {
+      padding: 3rem 5% !important;
+    }
+
+    .slide-container {
+      flex-direction: column;
+      text-align: center;
+      gap: 2rem;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      text-align: center;
+      margin-left: 20px;
+      margin-right: 20px;
+    }
+
+    .section-desc, .misi-list {
+      text-align: justify;
+      list-style-type: disc;
+      list-style: inside;
+      margin-left: 20px;
+      margin-right: 20px;
+    }
+
+    .misi-list {
+      padding-left: 0;
+    }
+    
+    .text-wrapper .swiper-pagination {
+    justify-content: center; /* Tengahin kalau di HP */
+  }
+  }

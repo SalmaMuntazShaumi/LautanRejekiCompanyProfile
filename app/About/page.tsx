@@ -25,25 +25,17 @@ export default function AboutPage() {
       <VisiMisiSlider></VisiMisiSlider>
 
       {/* --- NILAI PERUSAHAAN (Custom Layout) --- */}
-        <section style={{ padding: '5rem 10%', textAlign: 'center' }}>
+      <section className="values-section">
         <h2 className="section-title">Nilai Perusahaan Kami</h2>
         
-        <div style={{ 
-            display: 'flex', 
-            flexWrap: 'wrap', 
-            gap: '1.5rem', 
-            marginTop: '3rem' 
-        }}>
-            {/* Baris Pertama (3 Kotak) */}
-            <ValueCard icon={<Award size={40}/>} title="Kualitas" desc="Produk unggul dengan standar kualitas terbaik" />
-            <ValueCard icon={<Handshake size={40}/>} title="Layanan Terbaik" desc="Pelayanan yang prima adalah pedoman kami" />
-            <ValueCard icon={<Scale size={40}/>} title="Integritas" desc="Integritas hal penting dalam perusahaan kami" />
-
-            {/* Baris Kedua (2 Kotak Lebar) */}
-            <ValueCard icon={<Lightbulb size={40}/>} title="Inovatif" desc="Inovasi cerdas untuk konsumen dan produsen" />
-            <ValueCard icon={<ShieldCheck size={40}/>} title="Keamanan" desc="Keamanan bagi seluruh hal yang berkaitan dengan kami" />
+        <div className="values-grid">
+          <ValueCard icon={<Award size={40}/>} title="Kualitas" desc="Produk unggul dengan standar kualitas terbaik" />
+          <ValueCard icon={<Handshake size={40}/>} title="Layanan Terbaik" desc="Pelayanan yang prima adalah pedoman kami" />
+          <ValueCard icon={<Scale size={40}/>} title="Integritas" desc="Integritas hal penting dalam perusahaan kami" />
+          <ValueCard icon={<Lightbulb size={40}/>} title="Inovatif" desc="Inovasi cerdas untuk konsumen dan produsen" />
+          <ValueCard icon={<ShieldCheck size={40}/>} title="Keamanan" desc="Keamanan bagi seluruh hal yang berkaitan dengan kami" />
         </div>
-        </section>
+      </section>
         
       {/* --- PARTNERSHIP --- */}
         <section style={{ padding: '2rem 0', textAlign: 'center' }}>
@@ -131,23 +123,10 @@ export default function AboutPage() {
 
 function ValueCard({ icon, title, desc }: any) {
   return (
-    <div className="value-card" style={{ 
-      backgroundColor: '#436197', 
-      color: 'white', 
-      padding: '2.5rem 2rem', 
-      borderRadius: '20px', 
-      textAlign: 'left',
-      flex: '1 1 300px', // Melar otomatis, minimal lebar 300px
-      minHeight: '220px',
-      display: 'flex',
-      flexDirection: 'column',
-      justifyContent: 'center',
-      boxShadow: '8px 8px 0px rgba(0,0,0,0.1)', // Efek shadow kaku sesuai gambar
-      border: '1px solid rgba(0,0,0,0.2)'
-    }}>
-      <div style={{ marginBottom: '1.5rem' }}>{icon}</div>
-      <h3 style={{ fontWeight: '500', fontSize: '1.4rem', marginBottom: '0.8rem' }}>{title}</h3>
-      <p style={{ fontSize: '1rem', opacity: 0.9, lineHeight: '1.5' }}>{desc}</p>
+    <div className="value-card">
+      <div className="value-icon">{icon}</div>
+      <h3>{title}</h3>
+      <p>{desc}</p>
     </div>
   );
 }
