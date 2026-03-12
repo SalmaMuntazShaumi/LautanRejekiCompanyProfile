@@ -157,11 +157,13 @@ body {
   }
 }
 
+/* app/globals.css */
+
 .product-card {
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease-in-out !important;
   cursor: pointer;
 }
 
 .product-card:hover {
-  transform: translateY(-8px);
+  transform: translateY(-10px) !important;
 }
