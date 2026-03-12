@@ -49,7 +49,7 @@ export default function RootLayout({
                 padding: '1rem 5%', borderBottom: '1px solid #eee', backgroundColor: 'white',
                 position: 'sticky', top: 0, zIndex: 100
               }}>
-                <Image src="/images/logo.png" alt="Logo" width={180} height={62} priority />
+                <Image src="/images/logo_perusahaan.png" alt="Logo" width={180} height={62} priority />
                 <nav>
                   <ul style={{ display: 'flex', gap: '2rem', listStyle: 'none', fontWeight: 500 }}>
                     <li><Link href="/">Beranda</Link></li>
