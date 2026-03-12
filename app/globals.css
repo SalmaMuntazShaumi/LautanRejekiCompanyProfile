@@ -165,3 +165,82 @@ body {
 .product-card:hover {
   transform: translateY(-8px);
 }
+
+/* app/globals.css */
+
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.footer-links-row {
+  display: flex;
+  gap: 3rem;
+  margin-bottom: 2rem;
+}
+
+.footer-main-content {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.footer-socials {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+/* RESPONSIVE BREAKPOINT */
+@media (max-width: 768px) {
+  .desktop-nav {
+    display: none; /* Sembunyikan nav lama di HP */
+  }
+
+  .mobile-menu-btn {
+    display: block; /* Munculkan hamburger di HP */
+  }
+
+  .mobile-menu-overlay {
+    position: fixed;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 80px);
+    background: white;
+    z-index: 99;
+    display: flex;
+    flex-direction: column;
+    padding-top: 2rem;
+  }
+
+  .mobile-menu-overlay li {
+    padding: 1.5rem;
+    border-bottom: 1px solid #eee;
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+
+  .mobile-menu-overlay a {
+    text-decoration: none;
+    color: black;
+  }
+
+  .footer-links-row {
+    gap: 1.5rem;
+    justify-content: center;
+  }
+
+  .footer-main-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-socials {
+    justify-content: center;
+    margin: 0 auto;
+  }
+}
