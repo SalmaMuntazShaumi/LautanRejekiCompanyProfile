@@ -1,0 +1,208 @@
+/* Sembunyikan tombol menu secara default (Desktop) */
+.mobile-menu-btn {
+  display: none; /* Ini kuncinya! */
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  color: black;
+}
+
+/* Header */
+.main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 5%;
+  border-bottom: 1px solid #eee;
+  background-color: white;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: 80px;
+}
+
+.nav-list {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+/* Footer */
+.main-footer {
+  background-color: #D9D9D9;
+  padding: 4rem 5%;
+}
+
+.footer-links-row {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 1.5rem;
+}
+
+.footer-main-content {
+  display: flex;
+  justify-content: space-between; /* Ini bikin alamat di kiri, sosmed di kanan */
+  align-items: flex-start;
+  gap: 2rem;
+}
+
+.footer-socials {
+  display: flex;
+  gap: 15px;
+}
+
+.tab-filter-container {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+.tab-button {
+  padding: 12px 25px;
+  border-radius: 10px;
+  border: none;
+  background-color: #D1D5DB;
+  color: #4B5563;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.tab-button.active {
+  background-color: #EF5350;
+  color: white;
+}
+
+.visi-misi-section {
+  background-color: #f9f9f9;
+  padding: 5rem 10%;
+}
+
+.slide-container {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  flex-wrap: wrap;
+}
+
+.image-wrapper {
+  flex: 1;
+  min-width: 300px;
+}
+
+.responsive-image {
+  border-radius: 20px;
+  object-fit: cover;
+  width: 100%;
+  height: auto;
+}
+
+.text-wrapper {
+  flex: 1.2;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Biar nempel ke atas */
+}
+/* --- SECTION STYLING --- */
+.visi-misi-section {
+  background-color: #f9f9f9;
+  padding: 5rem 10%;
+}
+
+.visi-misi-swiper {
+  padding-bottom: 50px !important; /* Ruang untuk dots */
+}
+
+.slide-container {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  flex-wrap: wrap;
+}
+
+.image-wrapper {
+  flex: 1;
+  min-width: 300px;
+}
+
+.responsive-image {
+  border-radius: 20px;
+  object-fit: cover;
+  width: 100%;
+  height: auto;
+}
+
+.text-wrapper {
+  flex: 1.2;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.section-title {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 1.5rem;
+}
+
+.section-desc, .misi-list {
+  color: #555;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  list-style-type: disc;
+  list-style: inside;
+}
+
+.visi-misi-section {
+  background-color: #f9f9f9;
+  padding: 5rem 10%;
+}
+
+.slide-container {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  flex-wrap: wrap;
+}
+
+.text-wrapper {
+  flex: 1.2;
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- KUNCI AGAR INDIKATOR MUNCUL & DINAMIS --- */
+.text-wrapper .swiper-pagination {
+  position: relative !important; /* WAJIB: Supaya ngikutin panjang teks */
+  bottom: auto !important;
+  left: auto !important;
+  width: 100% !important;
+  margin-top: 2rem; /* Jarak dari teks/list ke titik */
+  display: flex !important;
+  gap: 8px;
+  justify-content: flex-start;
+}
+
+/* Custom Bullet Merah */
+.text-wrapper .swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  background-color: #D1D5DB !important;
+  opacity: 1 !important;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.text-wrapper .swiper-pagination-bullet-active {
+  width: 25px !important;
+  border-radius: 10px !important;
+  background-color: #EF5350 !important; /* Merah sesuai logo PT Lautan Rejeki */
+}

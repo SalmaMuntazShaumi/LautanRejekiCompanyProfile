@@ -41,22 +41,26 @@ export default function Dashboard({ data }: { data: any }) {
       </div>
     </section>
 
-      {/* --- SEGMENTASI PASAR --- */}
-      <section style={{ padding: '2rem 5%', textAlign: 'center', backgroundColor: '#fff' }}>
-        <h2 className="section-title">Segmentasi Pasar</h2>
-        <p className="section-desc">Kami hadir sebagai distributor terpercaya yang memberikan pelayanan terbaik untuk setiap konsumen, baik untuk proyek berskala besar maupun kebutuhan skala kecil.</p>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1.5rem' }}>
-          {SEGMENTATIONS.map((seg, i) => (
-            <div key={i} className="card-container" style={{ position: 'relative', height: '250px', borderRadius: '12px', overflow: 'hidden' }}>
-              <div className="card-image-wrapper" style={{ position: 'relative', height: '100%' }}>
-                <Image src={seg.img} alt={seg.name} fill style={{ objectFit: 'cover' }} />
-                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.7), transparent)' }} />
-              </div>
-              <span style={{ position: 'absolute', bottom: '20px', left: '20px', color: 'white', fontWeight: '600', zIndex: 2 }}>{seg.name}</span>
+    {/* --- SEGMENTASI PASAR --- */}
+    <section style={{ padding: '2rem 5%', textAlign: 'center', backgroundColor: '#fff' }}>
+      <h2 className="section-title">Segmentasi Pasar</h2>
+      <p className="section-desc">Kami hadir sebagai distributor terpercaya yang memberikan pelayanan terbaik untuk setiap konsumen, baik untuk proyek berskala besar maupun kebutuhan skala kecil.</p>
+      
+      {/* HAPUS gridTemplateColumns dari sini, biarkan CSS yang atur */}
+      <div className="segmentation-grid"> 
+        {SEGMENTATIONS.map((seg, i) => (
+          <div key={i} className="card-container">
+            <div className="card-image-wrapper">
+              <Image src={seg.img} alt={seg.name} fill style={{ objectFit: 'cover' }} />
+              <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.7), transparent)' }} />
             </div>
-          ))}
-        </div>
-      </section>
+            <span style={{ position: 'absolute', bottom: '15px', left: '15px', color: 'white', fontWeight: '600', zIndex: 2, fontSize: 'inherit' }}>
+              {seg.name}
+            </span>
+          </div>
+        ))}
+      </div>
+    </section>
 
       {/* --- NILAI PERUSAHAAN (FULL CENTERED) --- */}
       <section style={{ padding: '2rem 5%', textAlign: 'center' }}>

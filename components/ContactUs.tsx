@@ -1,23 +1,11 @@
 export default function ContactUs() {
     return (
         <section style={{ padding: '3rem 5%', textAlign: 'center', backgroundColor: 'white' }}>
-            <h1 className="contact-heading" style={{ 
-                marginBottom: '1rem', 
-                fontWeight: '600', 
-                color: '#333', 
-                fontFamily: 'Montserrat',
-                lineHeight: '1.3' // Tambahkan ini agar saat teks turun ke bawah tidak terlalu rapat
-            }}>
+            <h1 className="section-title">
                 Buat kebutuhan pipamu menjadi lebih mudah bersama kami
             </h1>
             
-            <p className="contact-text" style={{ 
-                fontFamily: 'Montserrat', 
-                maxWidth: '1040px', 
-                margin: '0 auto 1.5rem auto', 
-                lineHeight: '1.6', 
-                color: '#666' 
-            }}>
+            <p className="section-desc">
                 Sebagai distributor pipa profesional dan transparan, kami selalu memastikan kepuasan pelanggan serta memberikan produk-produk berkualitas tinggi.
             </p>
             
