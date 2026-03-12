@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function CategoryCard({ name, img, slug }: { name: string; img: string; slug: string }) {
   return (
-    <Link href={`/Product?brand=${slug}`} style={{ textDecoration: 'none', display: 'block' }}>
+    <Link href={`/produk/${slug}`} style={{ textDecoration: 'none', display: 'block' }}>
       <div className="category-card" style={{ 
         borderRadius: '15px', 
         overflow: 'hidden', 

@@ -19,19 +19,65 @@
   }
 }
 
+/* --- BASE STYLES --- */
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: 'Poppins', 'Montserrat', Calibri;
+  font-family: 'Poppins', 'Montserrat', Calibri, sans-serif;
+  margin: 0;
 }
 
-/* Animasi untuk Segmentasi Pasar */
+/* --- TYPOGRAPHY (Responsive) --- */
+.section-title {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.section-desc {
+  font-size: 1rem;
+  color: #666;
+  max-width: 800px;
+  margin: 0 auto 3rem auto;
+  line-height: 1.6;
+}
+
+.contact-heading {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.contact-text {
+  font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+  .section-title, .contact-heading {
+    font-size: 1.5rem !important;
+    padding: 0 5%;
+  }
+
+  .section-desc, .contact-text {
+    font-size: 0.8rem !important;
+    padding: 0 7%;
+    margin-bottom: 2rem;
+  }
+}
+
+/* --- SEGMENTATION CARDS --- */
+.segmentation-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
 .card-container {
   position: relative;
-  height: 220px;
+  width: 100%;
+  aspect-ratio: 16 / 9; /* Maintains shape */
   border-radius: 15px;
   overflow: hidden;
-  cursor: default;
+  cursor: pointer;
 }
 
 .card-image-wrapper {
@@ -41,120 +87,72 @@ body {
   transition: transform 0.5s ease;
 }
 
-/* Efek Zoom saat kursor diarahkan ke container */
 .card-container:hover .card-image-wrapper {
   transform: scale(1.1);
 }
 
 .card-overlay {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  inset: 0;
   background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 60%);
   z-index: 1;
+  transition: opacity 0.3s ease;
 }
 
-/* Mengubah bentuk dan warna tombol panah */
-.swiper-button-next, 
-.swiper-button-prev {
-  background-color: #3d6098ac !important; /* Ganti ke biru sesuai Dashboard.jpg */
-  width: 38px !important;
-  height: 38px !important;
-  size: 38px !important;
-  border-radius: 50%;
-  color: white !important; /* Panah jadi putih */
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  transition: all 0.3s ease;
-  padding: 5px; /* Tambahkan padding untuk memperbesar area klik */
+@media (max-width: 768px) {
+  .segmentation-grid {
+    grid-template-columns: repeat(2, 1fr) !important; /* 2 Columns on Mobile */
+    gap: 0.75rem;
+  }
+  
+  .card-container {
+    aspect-ratio: 1 / 1; /* Square shape on mobile to save space */
+  }
+
+  .card-container span {
+    font-size: 12px !important;
+    bottom: 10px !important;
+    left: 10px !important;
+  }
 }
 
-/* Mengubah ukuran icon panah di dalamnya */
-.swiper-button-next:after, 
-.swiper-button-prev:after {
-  font-size: 16px !important;
-  font-weight: bold;
+/* --- CATEGORY CARDS --- */
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
 }
 
-/* Efek saat kursor menempel (Hover) */
-.swiper-button-next:hover, 
-.swiper-button-prev:hover {
-  background-color: #2a4570 !important;
-  transform: scale(1.1);
+.category-card {
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+  background-color: #436197;
+  transition: transform 0.3s ease;
 }
 
-.section-title {
-  /* style={{ fontSize: '28px', fontWeight: '600', marginBottom: '15px' }} */
-  font-size: 28px;
-  font-weight: 600;
-  margin-bottom: 15px;
-}
-
-.section-desc{
-  /* style={{ color: '#666', maxWidth: '800px', margin: '0 auto 3rem auto', lineHeight: '1.6' }} */
-  color: #666;
-  max-width: 800px;
-  margin: 0 auto 3rem auto;
-  line-height: 1.6;
-}
-
-/* app/globals.css atau file CSS kamu */
-
-.quick-link-card:hover{
-  transform: scale(1.1);
-}
-
-/* Pastikan kartu utamanya tidak bergerak */
-.quick-link-card {
-  transform: none !important;
-}
-
-
-/* Ketika kartu di-hover, gambar dengan class .img-zoom di dalamnya akan membesar */
 .category-card:hover .img-zoom {
   transform: scale(1.1);
 }
 
-/* Pastikan kartu utamanya tidak bergerak */
-.category-card {
-  transform: none !important;
-}
-
-.card-container {
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
-}
-
-.card-image-wrapper {
-  transition: transform 0.5s ease; /* Durasi animasi zoom */
-}
-
-/* Efek Zoom saat Hover */
-.card-container:hover .card-image-wrapper {
-  transform: scale(1.1); /* Gambar membesar 10% */
-}
-
-.card-overlay {
-  transition: opacity 0.3s ease;
-}
-
-/* Opsional: Membuat overlay sedikit lebih gelap saat hover */
-.card-container:hover .card-overlay {
-  background: linear-gradient(to top, rgba(0,0,0,0.85), transparent);
-}
-
-.custom-prev-btn:hover, .custom-next-btn:hover {
-  background-color: #333 !important;
-  color: white !important;
-}
-
-/* Responsif untuk Mobile */
 @media (max-width: 768px) {
-  .custom-prev-btn, .custom-next-btn {
-    margin: 0 auto;
+  .category-grid {
+    grid-template-columns: repeat(2, 1fr) !important; /* 2 Columns on Mobile */
+    gap: 0.75rem !important;
   }
+
+  .category-card h4 {
+    font-size: 12px !important;
+    padding: 10px 5px !important;
+  }
+}
+
+/* --- PRODUCT CARDS (Katalog) --- */
+.product-grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
 }
 
 .product-card {
@@ -166,8 +164,20 @@ body {
   transform: translateY(-8px);
 }
 
-/* app/globals.css */
+@media (max-width: 600px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    padding: 0 10px;
+  }
+  
+  .product-card-text {
+    font-size: 12px !important;
+    height: 50px !important;
+  }
+}
 
+/* --- NAVIGATION & FOOTER --- */
 .mobile-menu-btn {
   display: none;
   background: none;
@@ -190,19 +200,13 @@ body {
 
 .footer-socials {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(5, 1fr); /* Default 5 for icons */
   gap: 1rem;
 }
 
-/* RESPONSIVE BREAKPOINT */
 @media (max-width: 768px) {
-  .desktop-nav {
-    display: none; /* Sembunyikan nav lama di HP */
-  }
-
-  .mobile-menu-btn {
-    display: block; /* Munculkan hamburger di HP */
-  }
+  .desktop-nav { display: none; }
+  .mobile-menu-btn { display: block; }
 
   .mobile-menu-overlay {
     position: fixed;
@@ -217,21 +221,11 @@ body {
     padding-top: 2rem;
   }
 
-  .mobile-menu-overlay li {
-    padding: 1.5rem;
-    border-bottom: 1px solid #eee;
-    font-size: 1.2rem;
-    font-weight: 600;
-  }
-
-  .mobile-menu-overlay a {
-    text-decoration: none;
-    color: black;
-  }
-
   .footer-links-row {
-    gap: 1.5rem;
+    gap: 1rem;
     justify-content: center;
+    flex-wrap: wrap;
+    font-size: 14px;
   }
 
   .footer-main-content {
@@ -240,28 +234,32 @@ body {
   }
 
   .footer-socials {
+    grid-template-columns: repeat(5, 1fr);
     justify-content: center;
     margin: 0 auto;
   }
 }
 
-/* app/globals.css */
-
-.product-grid {
-  display: grid;
-  gap: 2rem;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+/* --- SWIPER / SLIDER CUSTOMS --- */
+.swiper-button-next, 
+.swiper-button-prev {
+  background-color: #3d6098ac !important;
+  width: 38px !important;
+  height: 38px !important;
+  border-radius: 50%;
+  color: white !important;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
 }
 
-@media (max-width: 600px) {
-  .product-grid {
-    grid-template-columns: repeat(2, 1fr); /* Menjadi 2 kolom di HP */
-    gap: 1rem; /* Jarak antar kartu lebih rapat di HP agar muat */
-    padding: 0 10px;
-  }
-  
-  .product-card-text {
-    font-size: 12px !important; /* Perkecil font di HP agar tidak terpotong */
-    height: 50px !important;
-  }
+.swiper-button-next:after, 
+.swiper-button-prev:after {
+  font-size: 16px !important;
+  font-weight: bold;
+}
+
+.swiper-button-next:hover, 
+.swiper-button-prev:hover {
+  background-color: #2a4570 !important;
+  transform: scale(1.1);
 }
