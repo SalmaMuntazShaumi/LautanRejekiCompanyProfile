@@ -48,9 +48,20 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
     {/* --- Bagian Bawah (Deskripsi & Tombol) --- */}
     <section className="product-lower-body">
       <div className="action-bar">
-        <button className="btn-download">
-          <span className="icon">↓</span> Unduh Katalog
-        </button>
+        {product.catalogUrl ? (
+          <a 
+            href={product.catalogUrl} 
+            download={`${product.name}-Katalog.pdf`} // Memberi nama file saat diunduh
+            className="btn-download"
+            style={{ textDecoration: 'none', display: 'inline-flex' }}
+          >
+            <span className="icon">↓</span> Unduh Katalog
+          </a>
+        ) : (
+          <button className="btn-download" disabled style={{ opacity: 0.5, cursor: 'not-allowed' }}>
+            Katalog Tidak Tersedia
+          </button>
+        )}
       </div>
 
       <div className="description-container">

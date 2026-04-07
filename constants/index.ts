@@ -62,6 +62,7 @@ id: number;
   specs?: string; // This is the general description/specification, and is optional ('?')
   advantages?: string[];
   detailedSpecs?: ProductSpecification[]; // Optional
+  catalogUrl: string;
 }
 
 export const ALL_PRODUCTS: Product[] = [
@@ -81,8 +82,8 @@ export const ALL_PRODUCTS: Product[] = [
         kelasDescription: "Kelas D Merupakan Pipa untuk saluran pembuangan dan limbah dengan 11 macam ukuran diameter dari 1 1/4 inch hingga 12 inch.",
         specImage: "/images/product_rucika/detail/standard/d.png"
       }
-    ]
-
+    ],
+    catalogUrl: "/catalog/rucika_standard.pdf"
    },
   { id: 2, 
     name: "Pipa PVC - JIS", 
@@ -98,13 +99,15 @@ export const ALL_PRODUCTS: Product[] = [
         kelasName: "VU/D",
         kelasDescription: "Kelas VU/D Merupakan Pipa uPVC berstandard Japanese Industrial Standards (JIS) untuk aplikasi air limbah, memiliki safety faktor tinggi dalam hal ketebalan pipa."
       }
-    ]
+    ],
+    catalogUrl: "/catalog/rucika_jis.pdf"
   },
   { id: 3, 
     name: "Pipa PVC - Safe (SNI)", 
     img: "/images/product_rucika/sni.png", 
     brand: "Rucika",
-    desc: "RUCIKA SAFE adalah sistem jaringan perpipaan uPVC sesuai Standar Nasional Indonesia (SNI) yang dirancang untuk mendistribusikan air minum dan air bersih ke masyarakat luas serta berbagai jenis proyek.\nRUCIKA SAFE menggunakan sistem penyambungan dengan lem atau umum disebut Solvent Cement (SC)" 
+    desc: "RUCIKA SAFE adalah sistem jaringan perpipaan uPVC sesuai Standar Nasional Indonesia (SNI) yang dirancang untuk mendistribusikan air minum dan air bersih ke masyarakat luas serta berbagai jenis proyek.\nRUCIKA SAFE menggunakan sistem penyambungan dengan lem atau umum disebut Solvent Cement (SC)",
+    catalogUrl: "/catalog/rucika_sni.pdf" 
   },
   { id: 4, 
     name: "Pipa PP-R", 
@@ -127,20 +130,23 @@ export const ALL_PRODUCTS: Product[] = [
         kelasDescription: "Tipe PN 20 Merupakan Pipa PP-R yang dipergunakan untuk mengalirkan air panas bertekanan tinggi.",
         specImage: "/images/product_rucika/detail/ppr/pn20.png"
       }
-    ]
+    ],
+    catalogUrl: "/catalog/rucika_ppr.pdf"
    },
   { id: 5, 
     name: "Pipa HDPE", 
     img: "/images/product_rucika/hdpe.png", 
     brand: "Rucika",
-    desc: "RUCIKA BLACK merupakan sistem perpipaan yang terpercaya dengan menggunakan pipa HDPE yang memiliki karakteristik istimewa dan sesuai untuk aplikasi air minum karena terbuat dari Polyethylene (PE). Materialnya memiliki tingkat elastisitas yang tinggi dan tingkat keretakan yang rendah, sehingga memiliki life time lebih dari 50 tahun."
+    desc: "RUCIKA BLACK merupakan sistem perpipaan yang terpercaya dengan menggunakan pipa HDPE yang memiliki karakteristik istimewa dan sesuai untuk aplikasi air minum karena terbuat dari Polyethylene (PE). Materialnya memiliki tingkat elastisitas yang tinggi dan tingkat keretakan yang rendah, sehingga memiliki life time lebih dari 50 tahun.",
+    catalogUrl: "https://drive.google.com/file/d/1He_iZ-OeuTSIINHG9Unhz82Us85z8PKl/view"
   },
   { id: 6, 
     name: "Pipa Exoplas", 
     img: "/images/product_rucika/exoplas.png", 
     brand: "Rucika",
-    desc: "RUCIKA EXOPLAS merupakan sistem perpipaan dengan menggunakan pipa SNI (Standar Nasional Indonesia) yang terpercaya untuk aplikasi air bersih bertekanan dengan karakteristik yang teristimewa karena terbuat dari uPVC (unplastized Polyvinyl Chloride) dengan metode pembuatan yang berorientasi Bi-axial (stretching) untuk peningkatan peforma pipa termoplastik. Pipa RUCIKA EXOPLAS dengan design stress sampai dengan 28 MPa atau 2x lipat lebih besar dari pipa uPVC membuat ketahanan pressure meningkat dengan perbandingan ketebalan pipa yang sama dengan pipa uPVC."
-   },
+    desc: "RUCIKA EXOPLAS merupakan sistem perpipaan dengan menggunakan pipa SNI (Standar Nasional Indonesia) yang terpercaya untuk aplikasi air bersih bertekanan dengan karakteristik yang teristimewa karena terbuat dari uPVC (unplastized Polyvinyl Chloride) dengan metode pembuatan yang berorientasi Bi-axial (stretching) untuk peningkatan peforma pipa termoplastik. Pipa RUCIKA EXOPLAS dengan design stress sampai dengan 28 MPa atau 2x lipat lebih besar dari pipa uPVC membuat ketahanan pressure meningkat dengan perbandingan ketebalan pipa yang sama dengan pipa uPVC.",
+    catalogUrl: "/catalog/rucika_exoplas.pdf"
+  },
   { id: 7, 
     name: "Fitting PVC - JIS", 
     img: "/images/product_rucika/fitting_jis.png", 
@@ -159,7 +165,8 @@ export const ALL_PRODUCTS: Product[] = [
         kelasName: "AW - SNI",
         specImage: "/images/product_rucika/detail/fitting_pvc/safe.png",
       }
-    ]
+    ],
+    catalogUrl: "/catalog/rucika_fitting_pvc.pdf"
   },
   { id: 8, 
     name: "Fitting PP-R", 
@@ -170,7 +177,8 @@ export const ALL_PRODUCTS: Product[] = [
       {
         specImage: "/images/product_rucika/detail/fitting_ppr/ppr.png",
       }
-    ]
+    ],
+    catalogUrl: "https://drive.google.com/file/d/1sJu18Q0jmkL3-OByW8KAODHmdecvmCL-/view"
    },
   { id: 9, 
     name: "Fitting HDPE", 
@@ -181,7 +189,8 @@ export const ALL_PRODUCTS: Product[] = [
       {
         specImage: "/images/product_rucika/detail/fitting_hdpe/hdpe.png",
       }
-    ]
+    ],
+    catalogUrl: "https://drive.google.com/file/d/1He_iZ-OeuTSIINHG9Unhz82Us85z8PKl/view"
    },
 
   { id: 10, 
@@ -194,7 +203,8 @@ export const ALL_PRODUCTS: Product[] = [
       "Tahan terhadap korosi", "Resistensi terhadap benturan keras", "Pemakaian Jangka Panjang",
       "Tahan terhadap cuaca panas dan dingin", "Ringan", "Biaya teknik yang relatif rendah", "Instalasi yang mudah dan cepat", "Tahan lama",
       "Bagian dalam haalus sehingga pergesekan aliran rendah", "Non polusi pada lingkungan", "Kekuatan dan fleksibilitas pipa yang tinggi",
-    ]
+    ],
+    catalogUrl: "https://drive.google.com/file/d/1vqIB6JKwuAw2V2V7gZtrMV4ZT_vdcNNs/view"
    },
   { id: 11, 
     name: "Pipa Spiral HDPE", 
@@ -223,7 +233,8 @@ export const ALL_PRODUCTS: Product[] = [
         kelasDescription: "Tipe VW Merupakan Pipa tipe berdingding padat, terutama digunakan untuk sambungan pipa seperti tee dan elbow, serta proses lanjutan dari kelengkapan aksesoris pipa.",
         specImage: "/images/product_shuanglin/detail/spiral/vw.png"
       }
-    ]  
+    ],
+    catalogUrl: "https://drive.google.com/file/d/1vqIB6JKwuAw2V2V7gZtrMV4ZT_vdcNNs/view"  
    },
   { id: 12, 
     name: "Pipa HDPE/PP Single Wall", 
@@ -242,7 +253,8 @@ export const ALL_PRODUCTS: Product[] = [
         kelasDescription: "Spesifikasi Pipa HDPE Single Wall Corrugated JIS Standard",
         specImage: "/images/product_shuanglin/detail/sw/jis.png"
       }
-    ]
+    ],
+    catalogUrl: "https://drive.google.com/file/d/1vqIB6JKwuAw2V2V7gZtrMV4ZT_vdcNNs/view"
    },
 
   { id: 13, 
@@ -253,7 +265,8 @@ export const ALL_PRODUCTS: Product[] = [
       {
         specImage: "/images/product_extrana/detail/copper/type.png",
       }
-    ]
+    ],
+    catalogUrl: "https://drive.google.com/file/d/1NsX0ZwPhAZfvPBuGpqMZO4ehSn4HR8i7/view"
    },
   { id: 14, 
     name: "Low Voltage Cables (Aluminuim)", 
@@ -263,7 +276,8 @@ export const ALL_PRODUCTS: Product[] = [
       {
         specImage: "/images/product_extrana/detail/alumunium/type.png"
       }
-    ]
+    ],
+    catalogUrl: "https://drive.google.com/file/d/1NsX0ZwPhAZfvPBuGpqMZO4ehSn4HR8i7/view"
    },
   { id: 15, 
     name: "Instrument & Control Cables", 
@@ -273,7 +287,8 @@ export const ALL_PRODUCTS: Product[] = [
       {
         specImage: "/images/product_extrana/detail/icc/type.png"
       }
-    ]
+    ],
+    catalogUrl: "https://drive.google.com/file/d/1NsX0ZwPhAZfvPBuGpqMZO4ehSn4HR8i7/view"
    },
   { id: 16, 
     name: "Overhead Conductors", 
@@ -283,7 +298,8 @@ export const ALL_PRODUCTS: Product[] = [
       {
         specImage: "/images/product_extrana/detail/oc/type.png"
       }
-    ]
+    ],
+    catalogUrl: "https://drive.google.com/file/d/1NsX0ZwPhAZfvPBuGpqMZO4ehSn4HR8i7/view"
    },
   { id: 17, 
     name: "Fire Resistant Cables", 
@@ -293,7 +309,8 @@ export const ALL_PRODUCTS: Product[] = [
       {
         specImage: "/images/product_extrana/detail/frc/type.png"
       }
-    ]
+    ],
+    catalogUrl: "https://drive.google.com/file/d/1NsX0ZwPhAZfvPBuGpqMZO4ehSn4HR8i7/view"
    },
   { id: 18, 
     name: "Medium Voltage Cables", 
@@ -303,6 +320,7 @@ export const ALL_PRODUCTS: Product[] = [
       {
         specImage: "/images/product_extrana/detail/mvc/type.png"
       }
-    ]
+    ],
+    catalogUrl: "https://drive.google.com/file/d/1NsX0ZwPhAZfvPBuGpqMZO4ehSn4HR8i7/view"
    },
 ];
