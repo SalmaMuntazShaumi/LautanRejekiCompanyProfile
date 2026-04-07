@@ -46,13 +46,7 @@ export const KLIEN_LOGOS = [
   { id: 15, img: '/images/client/wika.png', alt: 'Wika' },
 ];
 
-export const VALUES_DATA = [
-  { label: "Berkualitas", icon: Award },
-  { label: "Layanan Terbaik", icon: Handshake },
-  { label: "Jujur", icon: Scale },
-  { label: "Inovatif", icon: Lightbulb },
-  { label: "Aman", icon: ShieldCheck },
-];
+
 interface ProductSpecification {
   kelasName?: string;         // The text for the chip (e.g., "AW")
   kelasDescription?: string;  // The specific paragraph
