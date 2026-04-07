@@ -17,6 +17,13 @@ import { CATEGORIES, MITRA_LOGOS, SEGMENTATIONS } from "@/constants";
 import CategoryCard from "@/components/ProductCategoryCard";
 import QuickLinkCard from "@/components/QuickLinkCard";
 
+const fadeInUp = {
+  initial: { opacity: 0, y: 20 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true }, // Animasi hanya jalan sekali saat di-scroll
+  transition: { duration: 0.8 }
+};
+
 export default function Dashboard({ data }: { data: any }) {
   return (
     <>

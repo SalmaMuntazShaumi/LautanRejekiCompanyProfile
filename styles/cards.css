@@ -122,46 +122,53 @@
   margin: 0;
 }
 
+/* --- SECTION CONTAINER --- */
 .values-section {
-  padding: 5rem 10%;
+  padding: 5rem 5%;
   text-align: center;
 }
 
+/* --- GRID SYSTEM --- */
 .values-grid {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  /* Desktop: 3 kolom (atau otomatis menyesuaikan) */
+  grid-template-columns: repeat(3, 1fr); 
   gap: 1.5rem;
   margin-top: 3rem;
 }
 
+/* --- CARD STYLING --- */
 .value-card {
   background-color: #436197;
   color: white;
   padding: 2.5rem 2rem;
   border-radius: 20px;
   text-align: left;
-  flex: 1 1 300px; /* Minimal 300px di desktop */
   min-height: 220px;
+  
+  /* Grid Internal Card */
   display: flex;
   flex-direction: column;
   justify-content: center;
-  box-shadow: 8px 8px 0px rgba(0,0,0,0.1);
+  
+  /* box-shadow: 8px 8px 0px rgba(0,0,0,0.1); */
   border: 1px solid rgba(0,0,0,0.2);
-  transition: transform 0.3s ease;
+  transition: background-color 0.3s ease;
 }
 
 .value-icon {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
+  color: #fff;
 }
 
 .value-card h3 {
-  font-weight: 500;
-  font-size: 1.4rem;
-  margin-bottom: 0.8rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
 }
 
 .value-card p {
-  font-size: 1rem;
+  font-size: 0.95rem;
   opacity: 0.9;
-  line-height: 1.5;
+  line-height: 1.4;
 }

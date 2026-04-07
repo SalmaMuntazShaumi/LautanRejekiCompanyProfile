@@ -9,48 +9,78 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import CompanyMaps from "@/components/Maps";
 import ContactInfo from "@/components/ContactInfo";
+import { motion } from "framer-motion";
+import { Reveal } from "@/components/Reveal";
+
+const fadeInUp = {
+  initial: { opacity: 0, y: 20 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true }, // Animasi hanya jalan sekali saat di-scroll
+  transition: { duration: 0.8 }
+};
 
 export default function AboutPage() {
   return (
     <main style={{ fontFamily: 'Montserrat, sans-serif' }}>
-      {/* --- SEKSI PROFIL PERUSAHAAN --- */}
+      {/* SEKSI PROFIL */}
       <section style={{ padding: '5rem 10%', textAlign: 'center' }}>
-        <h2 style={{ fontWeight: 'bold', fontSize: '2rem', marginBottom: '1.5rem' }}>PT LAUTAN REJEKI</h2>
-        <p style={{ maxWidth: '900px', margin: '0 auto', lineHeight: '1.8', color: '#444' }}>
-          PT Lautan Rejeki merupakan distributor bahan bangunan yang mengfokuskan diri pada pipa bangunan berkualitas. Berdiri sejak tahun 2008, kami telah melayani berbagai proyek skala nasional dengan integritas tinggi.
-        </p>
+        <Reveal>
+          <h2 style={{ fontWeight: 'bold', fontSize: '2rem', marginBottom: '1.5rem' }}>PT LAUTAN REJEKI</h2>
+          <p style={{ maxWidth: '900px', margin: '0 auto', lineHeight: '1.8', color: '#444' }}>
+            PT Lautan Rejeki merupakan distributor bahan bangunan yang mengfokuskan diri pada pipa bangunan berkualitas...
+          </p>
+        </Reveal>
       </section>
 
       {/* --- SEKSI VISI --- */}
+      <Reveal delay={0.8}>
       <VisiMisiSlider></VisiMisiSlider>
+      </Reveal>
 
-      {/* --- NILAI PERUSAHAAN (Custom Layout) --- */}
+      {/* SEKSI NILAI PERUSAHAAN (Grid Animasi Stagger/Berurutan) */}
       <section className="values-section">
-        <h2 className="section-title">Nilai Perusahaan Kami</h2>
+        <Reveal>
+          <h2 className="section-title">Nilai Perusahaan Kami</h2>
+        </Reveal>
         
         <div className="values-grid">
-          <ValueCard icon={<Award size={40}/>} title="Kualitas" desc="Produk unggul dengan standar kualitas terbaik" />
-          <ValueCard icon={<Handshake size={40}/>} title="Layanan Terbaik" desc="Pelayanan yang prima adalah pedoman kami" />
-          <ValueCard icon={<Scale size={40}/>} title="Integritas" desc="Integritas hal penting dalam perusahaan kami" />
-          <ValueCard icon={<Lightbulb size={40}/>} title="Inovatif" desc="Inovasi cerdas untuk konsumen dan produsen" />
-          <ValueCard icon={<ShieldCheck size={40}/>} title="Keamanan" desc="Keamanan bagi seluruh hal yang berkaitan dengan kami" />
+          {/* Tambahkan delay berbeda di setiap kartu agar muncul satu per satu */}
+          <Reveal delay={0.1}>
+            <ValueCard icon={<Award size={40}/>} title="Kualitas" desc="Produk unggul dengan standar kualitas terbaik" />
+          </Reveal>
+          <Reveal delay={0.2}>
+            <ValueCard icon={<Handshake size={40}/>} title="Layanan Terbaik" desc="Pelayanan yang prima adalah pedoman kami" />
+          </Reveal>
+          <Reveal delay={0.3}>
+            <ValueCard icon={<Scale size={40}/>} title="Integritas" desc="Integritas hal penting dalam perusahaan kami" />
+          </Reveal>
+          <Reveal delay={0.4}>
+            <ValueCard icon={<Lightbulb size={40}/>} title="Inovatif" desc="Inovasi cerdas untuk konsumen dan produsen" />
+          </Reveal>
+          <Reveal delay={0.5}>
+            <ValueCard icon={<ShieldCheck size={40}/>} title="Keamanan" desc="Keamanan bagi seluruh hal yang berkaitan dengan kami" />
+          </Reveal>
         </div>
       </section>
         
       {/* --- PARTNERSHIP --- */}
-        <section style={{ padding: '2rem 0', textAlign: 'center' }}>
-            <h2 className="section-title">Kerja sama kami</h2>
-            <p className="section-desc">PT Lautan Rejeki menjalin kerja sama dengan berbagai mitra untuk mendistribusikan pipa konstruksi berkualitas, didukung oleh layanan profesional dan proses yang transparan.</p>
-            <LogoSlider items={MITRA_LOGOS} />
-        </section>
+      <Reveal>
+      <section style={{ padding: '2rem 0', textAlign: 'center' }}>
+        <h2 className="section-title">Kerja sama kami</h2>
+        <p className="section-desc">PT Lautan Rejeki menjalin kerja sama dengan berbagai mitra untuk mendistribusikan pipa konstruksi berkualitas, didukung oleh layanan profesional dan proses yang transparan.</p>
+        <LogoSlider items={MITRA_LOGOS} />
+      </section>
+      </Reveal>
 
-      {/* --- KLIEN --- */}
-        <section style={{ padding: '2rem 0', textAlign: 'center' }}>
-            <h2 className="section-title">Klien kami</h2>
-            <p className="section-desc">Kami telah mendistribusikan dari lebih 1000 konsumen kami baik dari skala besar hingga ke skala kecil</p>
-            <LogoSlider items={KLIEN_LOGOS} />
-        </section>
+      {/* SEKSI KLIEN */}
+      <Reveal>
+      <section style={{ padding: '2rem 0', textAlign: 'center' }}>
+          <h2 className="section-title">Klien kami</h2>
+          <LogoSlider items={KLIEN_LOGOS} />
+      </section>
+      </Reveal>
 
+        <Reveal delay={0.5}>
         <section style={{ padding: '2rem 0', textAlign: 'center' }}>
             <h2 className="section-title">Referensi Proyek</h2>
             <Swiper
@@ -105,6 +135,7 @@ export default function AboutPage() {
                 ))}
             </Swiper>
         </section>
+        </Reveal>
 
       {/* --- KONTAK & LOKASI (GRID BAWAH) --- */}
         <section style={{ padding: '5rem 10%', backgroundColor: '#fff', borderTop: '1px solid #eee' }}>
@@ -123,17 +154,17 @@ export default function AboutPage() {
 
 function ValueCard({ icon, title, desc }: any) {
   return (
-    <div className="value-card">
+    <motion.div className="value-card">
       <div className="value-icon">{icon}</div>
       <h3>{title}</h3>
       <p>{desc}</p>
-    </div>
+    </motion.div>
   );
 }
 
 const banners = [
     { id: 1, img: '/images/proyek/citra.png', title: 'Citra Garden', desc: 'Serpong' },
     { id: 2, img: '/images/proyek/idc.png', title: 'Iris Data Center', desc: 'Cikarang' },
-    { id: 3, img: '/images/proyek/jco.png', title: 'Jakarta Central Outlet', desc: 'Alam Sutera' },
+    { id: 3, img: '/images/proyek/jpo.png', title: 'Jakarta Premium Outlet', desc: 'Alam Sutera' },
     { id: 4, img: '/images/proyek/summa.png', title: 'Summarecon', desc: 'Bogor' },
 ];
