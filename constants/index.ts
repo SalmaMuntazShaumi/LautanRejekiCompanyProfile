@@ -1,4 +1,4 @@
-import { Award, Handshake, Scale, Lightbulb, ShieldCheck } from "lucide-react";
+import { Award, Handshake, Scale, Lightbulb, ShieldCheck, LucideIcon } from "lucide-react";
 
 export const CATEGORIES = [
   { name: 'Pipa Rucika', img: '/images/product_category/cat_rucika.png', slug: 'pipa-rucika' },
@@ -53,7 +53,6 @@ export const VALUES_DATA = [
   { label: "Inovatif", icon: Lightbulb },
   { label: "Aman", icon: ShieldCheck },
 ];
-
 interface ProductSpecification {
   kelasName?: string;         // The text for the chip (e.g., "AW")
   kelasDescription?: string;  // The specific paragraph
