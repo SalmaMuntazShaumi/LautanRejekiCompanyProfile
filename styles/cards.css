@@ -32,6 +32,11 @@
   transition: transform 0.3s ease;
 }
 
+.product-card:hover {
+  transform: translateY(-5px); /* Adds a nice "lift" effect when hovered */
+  cursor: pointer;
+}
+
 .product-image-container {
   position: relative;
   height: 180px; /* Tinggi di Desktop */

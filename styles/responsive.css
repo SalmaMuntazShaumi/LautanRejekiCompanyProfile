@@ -203,4 +203,8 @@
     .text-wrapper .swiper-pagination {
     justify-content: center; /* Tengahin kalau di HP */
   }
+
+  .spec-table-image-wrapper {
+    height: 250px;
+  }
   }

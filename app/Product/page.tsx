@@ -72,7 +72,8 @@ function ProductsContent() {
       {/* --- GRID PRODUK --- */}
       <div className="product-grid">
         {filteredProducts.map((product) => (
-          <div key={product.id} className="product-card">
+          <Link href={`/Product/${product.id}`} key={product.id} className="product-card-link">
+            <div key={product.id} className="product-card">
             {/* Gunakan class product-image-container supaya height-nya bisa kita atur via CSS */}
             <div className="product-image-container">
               <Image src={product.img} alt={product.name} fill style={{ objectFit: 'cover' }}/>
@@ -84,6 +85,7 @@ function ProductsContent() {
               </p>
             </div>
           </div>
+          </Link>
         ))}
       </div>
     </main>
