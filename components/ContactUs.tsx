@@ -9,18 +9,23 @@ export default function ContactUs() {
                 Sebagai distributor pipa profesional dan transparan, kami selalu memastikan kepuasan pelanggan serta memberikan produk-produk berkualitas tinggi.
             </p>
             
-            <button style={{ 
-                color: '#333', 
-                padding: '12px 24px', 
-                border: '3px solid #E1E1E1', 
-                borderRadius: '8px', 
-                fontFamily: 'Montserrat',
-                fontWeight: '600',
-                cursor: 'pointer',
-                backgroundColor: 'transparent'
-            }}>
-                Hubungi kami
-            </button>
+            <a 
+            href="https://wa.me/6287780450268?text=Halo%20Admin,%20saya%20ingin%20bertanya%20tentang%20katalog%20produk%20dan%20harga%20yang%20ditawarkan." 
+                target="_blank" 
+                rel="noopener noreferrer"
+                style={{ textDecoration: 'none' }}>
+                <button style={{ 
+                    color: '#333', 
+                    padding: '12px 24px', 
+                    border: '3px solid #E1E1E1', 
+                    borderRadius: '8px', 
+                    fontFamily: 'Montserrat',
+                    fontWeight: '600',
+                    cursor: 'pointer',
+                    backgroundColor: 'transparent'}}>
+                        Hubungi kami
+                </button>
+            </a>
         </section>
     );
 }
