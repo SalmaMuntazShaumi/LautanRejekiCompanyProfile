@@ -1,8 +1,8 @@
 /* --- SEGMENTASI PASAR --- */
 .card-container {
   position: relative;
-  width: 100%;
-  height: 250px; /* Tinggi standar desktop */
+  /* width: 100%; */
+  height: 300px; /* Tinggi standar desktop */
   border-radius: 12px;
   overflow: hidden;
   text-align: left;
@@ -11,7 +11,7 @@
 
 .card-image-wrapper {
   position: relative;
-  width: 100%;
+  /* width: 100%; */
   height: 100%;
   transition: transform 0.5s ease;
 }
@@ -20,7 +20,7 @@
   display: grid;
   /* Desktop: otomatis mengisi kolom yang tersedia minimal 250px per kartu */
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 2rem;
+  gap: 1rem;
   padding: 2rem 0;
 }
 
@@ -58,17 +58,9 @@
 .category-grid, .segmentation-grid {
   display: grid;
   /* repeat auto-fit dengan min 200px supaya muat banyak ke samping di desktop */
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
   gap: 1.5rem;
   margin-top: 2rem;
-}
-
-.card-container {
-  position: relative;
-  width: 100%;
-  height: 250px; /* Tinggi standar desktop */
-  border-radius: 12px;
-  overflow: hidden;
 }
 
 /* --- KATEGORI PRODUK --- */
