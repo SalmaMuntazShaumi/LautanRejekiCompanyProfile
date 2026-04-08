@@ -79,11 +79,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             
             <div className="footer-socials">
               {/* Link sosial media biasanya tidak butuh logika Active Link, jadi pakai plain Link saja */}
-              <Link href="#"><FaWhatsapp size={35} color="black" /></Link>
-              <Link href="#"><FaInstagram size={35} color="black" /></Link>
-              <Link href="#"><FaFacebook size={35} color="black" /></Link>
-              <Link href="#"><FaYoutube size={35} color="black" /></Link>
-              <Link href="#"><AiFillTikTok size={35} color="black" /></Link>
+              <Link href="https://wa.me/6287780450268?text=Halo%20Admin,%20saya%20ingin%20bertanya%20tentang%20katalog%20produk%20dan%20harga%20yang%20ditawarkan." 
+                target="_blank" 
+                rel="noopener noreferrer"
+                style={{ textDecoration: 'none' }}><FaWhatsapp size={35} color="black" /></Link>
+              <Link href="https://www.instagram.com/lautanrejekigroupofficial" target="_blank" 
+                rel="noopener noreferrer"><FaInstagram size={35} color="black" /></Link>
+              <Link href="https://www.youtube.com/@LautanRejekiOfficial" target="_blank" 
+                rel="noopener noreferrer"><FaYoutube size={35} color="black" /></Link>
+              <Link href="https://www.tiktok.com/@lautanrejekigroup" target="_blank" 
+                rel="noopener noreferrer"><AiFillTikTok size={35} color="black" /></Link>
             </div>
           </div>
         </footer>

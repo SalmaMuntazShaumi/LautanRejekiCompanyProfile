@@ -1,12 +1,8 @@
-// components/LogoSlider.tsx
 'use client';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Autoplay } from 'swiper/modules';
 import Image from 'next/image';
-
-import 'swiper/css';
-import 'swiper/css/navigation';
 
 interface LogoItem {
   id: number;
@@ -15,28 +11,48 @@ interface LogoItem {
 }
 
 export default function LogoSlider({ items }: { items: LogoItem[] }) {
+  const swiperKey = items.map(i => i.id).join('-');
+  if (!items || items.length === 0) return null;
+
   return (
     <div style={{ padding: '0 5%' }}>
       <Swiper
+        key={swiperKey} // Reset Swiper saat items berubah
         modules={[Navigation, Autoplay]}
         spaceBetween={20}
         slidesPerView={2}
         navigation
-        autoplay={{ delay: 2500 }}
+        autoplay={{ delay: 2500, disableOnInteraction: false }}
+        // Fix untuk navigasi balik
+        observer={true}
+        observeParents={true}
         breakpoints={{
           640: { slidesPerView: 3 },
           1024: { slidesPerView: 4 },
         }}
-        // style={{ padding: '20px 40px' }}
       >
         {items.map((logo) => (
           <SwiperSlide key={logo.id}>
             <div style={{ 
-              backgroundColor: 'white', height: '200px', display: 'flex', 
-              justifyContent: 'center', alignItems: 'center', borderRadius: '8px',
-              border: '1px solid #f0f0f0', padding: '20px'
+              backgroundColor: 'white', 
+              height: '180px', 
+              width: '100%', // Pastikan lebar terkunci 100% dari kolom slider
+              display: 'flex', 
+              justifyContent: 'center', 
+              alignItems: 'center', 
+              borderRadius: '8px',
+              border: '1px solid #f0f0f0', 
+              padding: '20px',
+              boxSizing: 'border-box' // Mencegah padding merusak lebar
             }}>
-              <Image src={logo.img} alt={logo.alt} width={180} height={80} style={{ objectFit: 'contain' }} />
+              <div style={{ position: 'relative', width: '100%', height: '100%' }}>
+                <Image 
+                  src={logo.img} 
+                  alt={logo.alt} 
+                  fill // Gunakan fill agar lebih stabil di dalam container
+                  style={{ objectFit: 'contain' }} 
+                />
+              </div>
             </div>
           </SwiperSlide>
         ))}
