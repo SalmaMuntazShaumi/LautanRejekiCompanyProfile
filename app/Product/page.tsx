@@ -1,10 +1,27 @@
 "use client";
 
+import { motion } from "framer-motion";
 import { useState, useEffect, Suspense } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { ALL_PRODUCTS } from "@/constants";
+
+const fadeInUp = {
+  initial: { opacity: 0, y: 20 },
+  whileInView: { opacity: 1, y: 0 },
+  transition: { duration: 0.6 },
+  viewport: { once: true }
+};
+
+const staggerContainer = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.1
+    }
+  }
+};
 
 // 1. Wrapper Utama dengan Suspense (Wajib di Next.js kalau pakai useSearchParams)
 export default function ProductsPage() {
@@ -40,54 +57,84 @@ function ProductsContent() {
 
   return (
     <main style={{ padding: '4rem 5%', textAlign: 'center', minHeight: '80vh' }}>
-      <p style={{ color: '#666', marginBottom: '0.5rem' }}>Cari produk yang kamu inginkan</p>
-      <h1 className="section-title">Katalog Produk</h1>
+      <motion.p {...fadeInUp} style={{ color: '#666', marginBottom: '0.5rem' }}>
+        Cari produk yang kamu inginkan
+      </motion.p>
+
+      <motion.h1 className="section-title" {...fadeInUp}>
+        Katalog Produk
+      </motion.h1>
 
      {/* --- TAB FILTER --- */}
       <div className="tab-filter-container">
-        {["Rucika", "Shuanglin", "Extrana"].map((tab) => (
-          <button
+        {["Rucika", "Shuanglin", "Extrana"].map((tab, i) => (
+          <motion.button
             key={tab}
             onClick={() => setActiveTab(tab)}
             className={`tab-button ${activeTab === tab ? "active" : ""}`}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: i * 0.1 }}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
           >
             {tab}
-          </button>
+          </motion.button>
         ))}
       </div>
 
       {/* --- SEARCH BAR --- */}
-      <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '1rem' }}>
-        <input 
-          type="text" 
+      <motion.div
+        style={{ display: 'flex', justifyContent: 'center', marginBottom: '1rem' }}
+        {...fadeInUp}
+      >
+        <motion.input 
+          type="text"
           placeholder={`Cari di kategori ${activeTab}...`}
+          whileFocus={{ scale: 1.02 }}
           style={{ 
             width: '100%', maxWidth: '600px', padding: '12px 20px', borderRadius: '10px', 
             border: '1px solid #ddd', backgroundColor: '#f9f9f9'
           }}
           onChange={(e) => setSearchQuery(e.target.value)}
         />
-      </div>
+      </motion.div>
 
       {/* --- GRID PRODUK --- */}
-      <div className="product-grid">
+      <motion.div 
+        className="product-grid"
+        variants={staggerContainer}
+        initial="hidden"
+        animate="show"
+      >
         {filteredProducts.map((product) => (
-          <Link href={`/Product/${product.id}`} key={product.id} className="product-card-link">
-            <div key={product.id} className="product-card">
-            {/* Gunakan class product-image-container supaya height-nya bisa kita atur via CSS */}
-            <div className="product-image-container">
-              <Image src={product.img} alt={product.name} fill style={{ objectFit: 'cover' }}/>
-            </div>  
-            
-            <div className="product-card-text">
-              <p>
-                {product.name}
-              </p>
-            </div>
-          </div>
-          </Link>
+          <motion.div
+            key={product.id}
+            variants={fadeInUp}
+            whileHover={{ scale: 1.05 }}
+            transition={{ type: "spring", stiffness: 200 }}
+          >
+            <Link href={`/Product/${product.id}`} className="product-card-link">
+              <div className="product-card">
+
+                <div className="product-image-container">
+                  <Image 
+                    src={product.img} 
+                    alt={product.name} 
+                    fill 
+                    style={{ objectFit: 'cover' }}
+                  />
+                </div>  
+
+                <div className="product-card-text">
+                  <p>{product.name}</p>
+                </div>
+
+              </div>
+            </Link>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
     </main>
   );
 }
