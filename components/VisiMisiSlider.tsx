@@ -4,7 +4,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
 import Image from "next/image";
 
-import "swiper/css";
 import "swiper/css/pagination";
 
 export default function VisiMisiSlider() {
@@ -24,7 +23,7 @@ export default function VisiMisiSlider() {
         <SwiperSlide>
           <div className="slide-container">
             <div className="image-wrapper">
-              <Image src="/images/visi_misi.png" alt="Visi" width={500} height={400} className="responsive-image" />
+              <Image src="/images/visi_misi.png" alt="Visi" width={200} height={100} className="responsive-image" />
             </div>
             <div className="text-wrapper">
               <h2 className="section-title">Visi</h2>

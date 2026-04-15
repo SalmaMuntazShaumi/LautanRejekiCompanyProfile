@@ -92,7 +92,7 @@
 
 .image-wrapper {
   flex: 1;
-  min-width: 300px;
+  min-width: 100px;
 }
 
 .responsive-image {
@@ -126,11 +126,6 @@
   flex-wrap: wrap;
 }
 
-.image-wrapper {
-  flex: 1;
-  min-width: 300px;
-}
-
 .responsive-image {
   border-radius: 20px;
   object-fit: cover;
@@ -147,7 +142,7 @@
 }
 
 .section-title {
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: bold;
   color: #333;
   margin-bottom: 1.5rem;
@@ -159,6 +154,7 @@
   line-height: 1.8;
   list-style-type: disc;
   list-style: inside;
+  margin-bottom: 2rem;
 }
 
 .visi-misi-section {
