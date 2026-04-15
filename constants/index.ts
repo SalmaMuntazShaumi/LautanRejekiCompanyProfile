@@ -324,3 +324,16 @@ export const ALL_PRODUCTS: Product[] = [
     catalogUrl: "https://drive.google.com/file/d/1NsX0ZwPhAZfvPBuGpqMZO4ehSn4HR8i7/view"
    },
 ];
+
+export const GALLERY = [
+  "/images/gallery/1.JPG",
+  "/images/gallery/2.JPG",
+  "/images/gallery/3.JPG",
+  "/images/gallery/4.JPG",
+  "/images/gallery/5.JPG",
+  "/images/gallery/6.JPG",
+  "/images/gallery/7.JPG",
+  "/images/gallery/8.JPG",
+  "/images/gallery/9.JPG",
+  "/images/gallery/10.JPG",
+];
