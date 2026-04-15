@@ -38,19 +38,19 @@ export default function Dashboard({ data }: { data: any }) {
           {
             href: "/Product",
             title: "Lihat Produk",
-            desc: "Katalog produk terbaru kami.",
+            desc: "Temukan berbagai produk pipa dan kabel berkualitas dari kami.",
             icon: <Package2 size={42} color="#fff" />
           },
           {
             href: "/About",
             title: "Tentang",
-            desc: "Visi misi perusahaan kami.",
+            desc: "Lebih dekat dengan PT Lautan Rejeki.",
             icon: <Info size={42} color="#fff" />
           },
           {
             href: "/Contact",
             title: "Kontak",
-            desc: "Konsultasi proyek anda.",
+            desc: "Konsultasi kebutuhan pipa dan kabelmu dengan kami.",
             icon: <Contact size={42} color="#fff" />
           }
         ].map((item, i) => (
@@ -136,9 +136,9 @@ export default function Dashboard({ data }: { data: any }) {
         Kami selalu menjunjung tinggi nilai-nilai perusahaan dalam setiap aspek pekerjaan kami.
         </motion.p>
         <div style={{
-          backgroundColor: '#3D6098', borderRadius: '12px', padding: '3rem 1rem', 
+          backgroundColor: '#3D6098', borderRadius: '12px', padding: '2rem 1rem', 
           display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))', 
-          gap: '2rem', marginTop: '3rem', color: 'white'
+          gap: '2rem', marginTop: '2rem', color: 'white'
         }}>
           <ValueItem icon={<Award size={62} />} label="Berkualitas" />
           <ValueItem icon={<Handshake size={62} />} label="Layanan Terbaik" />
@@ -175,16 +175,37 @@ export default function Dashboard({ data }: { data: any }) {
 // Sub-komponen (Taruh di file yang sama atau pisahkan)
 const ValueItem = ({ icon, label }: { icon: React.ReactNode; label: string }) => (
   <motion.div
-    style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '15px' }}
+    style={{
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      gap: 'clamp(0px, 2.5vw, 12px)', // responsive gap
+      padding: 'clamp(6px, 2.5vw, 12px)'
+    }}
     {...fadeInUp}
-    whileHover={{ scale: 1.1 }}
+    whileHover={{ scale: 1.08 }}
   >
     <motion.div
       whileHover={{ rotate: 10 }}
       transition={{ type: "spring", stiffness: 200 }}
+      style={{
+        height: 'clamp(36px, 2.5vw, 62px)',
+        width: 'clamp(36px, 2.5vw, 62px)',
+        display: 'flex',
+        alignItems: 'center',
+      }}
     >
       {icon}
     </motion.div>
-    <span style={{ fontSize: '18px', fontWeight: '500' }}>{label}</span>
+
+    <span
+      style={{
+        fontSize: 'clamp(16px, 2.5vw, 18px)', // 🔥 auto resize
+        fontWeight: '500',
+        textAlign: 'center'
+      }}
+    >
+      {label}
+    </span>
   </motion.div>
 );
