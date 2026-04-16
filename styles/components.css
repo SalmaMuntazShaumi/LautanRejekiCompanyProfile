@@ -202,3 +202,9 @@
   border-radius: 10px !important;
   background-color: #EF5350 !important; /* Merah sesuai logo PT Lautan Rejeki */
 }
+
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
