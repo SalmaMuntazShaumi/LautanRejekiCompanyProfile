@@ -349,5 +349,47 @@ export const NEWS = [
     desc: "Direktur Keuangan PT Lautan Rejeki Luas, Bapak Sundara Ichsan, yang juga menjabat sebagai Ketua Bidang Pendidikan IKPI, menghadiri audiensi bersama Wakil Presiden Republik Indonesia. Pertemuan ini membahas perkembangan serta arah kebijakan perpajakan terbaru di Indonesia, sebagai bagian dari upaya meningkatkan efektivitas dan transparansi sistem perpajakan nasional. Kegiatan ini mencerminkan sinergi antara praktisi dan pemerintah dalam mendorong kebijakan yang adaptif terhadap dinamika ekonomi serta mendukung pertumbuhan yang berkelanjutan.",
     img: "/images/news/news1.jpg", // sesuaikan dengan gambar kamu
     date: "April 2026"
+  },
+  {
+    id: 2,
+    title: "Direktur Keuangan PT Lautan Rejeki Luas Hadiri Audiensi IKPI dengan Wapres RI",
+    desc: "Direktur Keuangan PT Lautan Rejeki Luas, Bapak Sundara Ichsan, yang juga menjabat sebagai Ketua Bidang Pendidikan IKPI, menghadiri audiensi bersama Wakil Presiden Republik Indonesia. Pertemuan ini membahas perkembangan serta arah kebijakan perpajakan terbaru di Indonesia, sebagai bagian dari upaya meningkatkan efektivitas dan transparansi sistem perpajakan nasional. Kegiatan ini mencerminkan sinergi antara praktisi dan pemerintah dalam mendorong kebijakan yang adaptif terhadap dinamika ekonomi serta mendukung pertumbuhan yang berkelanjutan.",
+    img: "/images/news/news1.jpg", // sesuaikan dengan gambar kamu
+    date: "April 2026"
+  },
+  {
+    id: 3,
+    title: "Direktur Keuangan PT Lautan Rejeki Luas Hadiri Audiensi IKPI dengan Wapres RI",
+    desc: "Direktur Keuangan PT Lautan Rejeki Luas, Bapak Sundara Ichsan, yang juga menjabat sebagai Ketua Bidang Pendidikan IKPI, menghadiri audiensi bersama Wakil Presiden Republik Indonesia. Pertemuan ini membahas perkembangan serta arah kebijakan perpajakan terbaru di Indonesia, sebagai bagian dari upaya meningkatkan efektivitas dan transparansi sistem perpajakan nasional. Kegiatan ini mencerminkan sinergi antara praktisi dan pemerintah dalam mendorong kebijakan yang adaptif terhadap dinamika ekonomi serta mendukung pertumbuhan yang berkelanjutan.",
+    img: "/images/news/news1.jpg", // sesuaikan dengan gambar kamu
+    date: "April 2026"
+  },
+  {
+    id: 4,
+    title: "Direktur Keuangan PT Lautan Rejeki Luas Hadiri Audiensi IKPI dengan Wapres RI",
+    desc: "Direktur Keuangan PT Lautan Rejeki Luas, Bapak Sundara Ichsan, yang juga menjabat sebagai Ketua Bidang Pendidikan IKPI, menghadiri audiensi bersama Wakil Presiden Republik Indonesia. Pertemuan ini membahas perkembangan serta arah kebijakan perpajakan terbaru di Indonesia, sebagai bagian dari upaya meningkatkan efektivitas dan transparansi sistem perpajakan nasional. Kegiatan ini mencerminkan sinergi antara praktisi dan pemerintah dalam mendorong kebijakan yang adaptif terhadap dinamika ekonomi serta mendukung pertumbuhan yang berkelanjutan.",
+    img: "/images/news/news1.jpg", // sesuaikan dengan gambar kamu
+    date: "April 2026"
+  },
+  {
+    id: 5,
+    title: "Direktur Keuangan PT Lautan Rejeki Luas Hadiri Audiensi IKPI dengan Wapres RI",
+    desc: "Direktur Keuangan PT Lautan Rejeki Luas, Bapak Sundara Ichsan, yang juga menjabat sebagai Ketua Bidang Pendidikan IKPI, menghadiri audiensi bersama Wakil Presiden Republik Indonesia. Pertemuan ini membahas perkembangan serta arah kebijakan perpajakan terbaru di Indonesia, sebagai bagian dari upaya meningkatkan efektivitas dan transparansi sistem perpajakan nasional. Kegiatan ini mencerminkan sinergi antara praktisi dan pemerintah dalam mendorong kebijakan yang adaptif terhadap dinamika ekonomi serta mendukung pertumbuhan yang berkelanjutan.",
+    img: "/images/news/news1.jpg", // sesuaikan dengan gambar kamu
+    date: "April 2026"
+  },
+  {
+    id: 6,
+    title: "Direktur Keuangan PT Lautan Rejeki Luas Hadiri Audiensi IKPI dengan Wapres RI",
+    desc: "Direktur Keuangan PT Lautan Rejeki Luas, Bapak Sundara Ichsan, yang juga menjabat sebagai Ketua Bidang Pendidikan IKPI, menghadiri audiensi bersama Wakil Presiden Republik Indonesia. Pertemuan ini membahas perkembangan serta arah kebijakan perpajakan terbaru di Indonesia, sebagai bagian dari upaya meningkatkan efektivitas dan transparansi sistem perpajakan nasional. Kegiatan ini mencerminkan sinergi antara praktisi dan pemerintah dalam mendorong kebijakan yang adaptif terhadap dinamika ekonomi serta mendukung pertumbuhan yang berkelanjutan.",
+    img: "/images/news/news1.jpg", // sesuaikan dengan gambar kamu
+    date: "April 2026"
+  },
+  {
+    id: 7,
+    title: "Direktur Keuangan PT Lautan Rejeki Luas Hadiri Audiensi IKPI dengan Wapres RI",
+    desc: "Direktur Keuangan PT Lautan Rejeki Luas, Bapak Sundara Ichsan, yang juga menjabat sebagai Ketua Bidang Pendidikan IKPI, menghadiri audiensi bersama Wakil Presiden Republik Indonesia. Pertemuan ini membahas perkembangan serta arah kebijakan perpajakan terbaru di Indonesia, sebagai bagian dari upaya meningkatkan efektivitas dan transparansi sistem perpajakan nasional. Kegiatan ini mencerminkan sinergi antara praktisi dan pemerintah dalam mendorong kebijakan yang adaptif terhadap dinamika ekonomi serta mendukung pertumbuhan yang berkelanjutan.",
+    img: "/images/news/news1.jpg", // sesuaikan dengan gambar kamu
+    date: "April 2026"
   }
 ];

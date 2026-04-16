@@ -94,7 +94,7 @@ export default function AboutPage() {
 
       {/* ================= NEWS ================= */}
       <Reveal>
-        <section style={{ padding: '4rem 10%', backgroundColor: '#f9f9f9', textAlign: 'center', alignContent: 'center' }}>
+        <section style={{ padding: '4rem 10%', backgroundColor: '#f9f9f9', alignItems: 'center', textAlign: 'center', alignContent: 'center' }}>
           <h2 className="section-title" style={{ textAlign: 'center'}}>
             Berita & Kegiatan
           </h2>
@@ -103,11 +103,10 @@ export default function AboutPage() {
             Ikuti perkembangan terbaru dari kegiatan dan proyek kami.
           </p>
 
-          <div className="news-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '2rem' }}>
-            {NEWS.slice(0, 3).map((item, i) => (
+          <div className="news-grid">
+            {NEWS.slice(0, 6).map((item, i) => (
               <Reveal key={item.id} delay={i * 0.2}>
                 <div className="news-card" onClick={() => setSelectedNews(item)}>
-
                   <div className="news-image">
                     <Image src={item.img} alt={item.title} fill style={{ objectFit: 'cover' }} />
                   </div>
