@@ -205,7 +205,7 @@
 
 .news-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, auto));
   gap: 2rem;
-  justify-items: center;
-} 
+  justify-content: center; /* 🔥 ini kunci */
+}
