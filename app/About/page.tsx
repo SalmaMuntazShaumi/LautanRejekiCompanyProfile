@@ -1,10 +1,11 @@
-"use client";
+'use client';
+import { useState } from "react";
 
 import Image from "next/image";
 import { Award, Handshake, Scale, Lightbulb, ShieldCheck, MapPin, Building2, Warehouse, Phone } from "lucide-react";
 import LogoSlider from "@/components/LogoSlider";
 import VisiMisiSlider from "@/components/VisiMisiSlider";
-import { KLIEN_LOGOS, MITRA_LOGOS } from "@/constants";
+import { GALLERY, KLIEN_LOGOS, MITRA_LOGOS } from "@/constants";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import CompanyMaps from "@/components/Maps";
@@ -20,17 +21,158 @@ const fadeInUp = {
 };
 
 export default function AboutPage() {
+  const [showAll, setShowAll] = useState(false);
   return (
     <main style={{ fontFamily: 'Montserrat, sans-serif' }}>
       {/* SEKSI PROFIL */}
       <section style={{ padding: '5rem 10%', textAlign: 'center' }}>
         <Reveal>
-          <h2 style={{ fontWeight: 'bold', fontSize: '2rem', marginBottom: '1.5rem' }}>PT LAUTAN REJEKI</h2>
-          <p style={{ maxWidth: '900px', margin: '0 auto', lineHeight: '1.8', color: '#444' }}>
+          <h2 className="section-title">PT LAUTAN REJEKI</h2>
+          <p className="section-desc">
             PT Lautan Rejeki merupakan distributor bahan bangunan yang mengfokuskan diri pada pipa bangunan berkualitas...
           </p>
         </Reveal>
       </section>
+
+      <section style={{ padding: '3rem 10%', backgroundColor: '#f9f9f9', textAlign: 'center' }}>
+        <Reveal>
+          <h2 className="section-title">
+            Gallery Kami
+          </h2>
+          <p className="section-desc">
+            Berikut adalah beberapa foto kegiatan dan proyek yang telah kami tangani, sebagai bukti komitmen kami dalam memberikan layanan terbaik.
+          </p>
+        </Reveal>
+
+        {/* 🔥 GRID GALLERY */}
+        <div className="gallery-grid">
+          {GALLERY.slice(0, 8).map((img, i) => (
+            <Reveal key={i} delay={0.5 + i * 0.1}>
+              <div className="gallery-img">
+                <img
+                  src={img}
+                  alt={`gallery-${i}`}
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                    transition: "transform 0.4s ease",
+                  }}/>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+
+        <motion.button
+          onClick={() => setShowAll(true)}
+          whileHover={{ 
+              scale: 1.05,
+              backgroundColor: "#3D6098",
+              color: "#fff",
+              borderColor: "#3D6098"}}
+            whileTap={{ scale: 0.95 }}
+            transition={{ type: "spring", stiffness: 300 }}
+            style={{ 
+              color: '#333', 
+              padding: '12px 24px', 
+              border: '3px solid #E1E1E1', 
+              borderRadius: '8px', 
+              fontFamily: 'Montserrat',
+              fontWeight: '600',
+              cursor: 'pointer',
+              backgroundColor: 'transparent',
+              marginTop: '1.5rem'
+          }}>
+            Lihat Semua
+        </motion.button>
+
+      </section> 
+      {showAll && (
+        <div
+          onClick={() => setShowAll(false)}
+          style={{
+            position: "fixed",
+            inset: 0,
+            backgroundColor: "rgba(0,0,0,0.8)",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            zIndex: 9999,
+            padding: "1rem"
+          }}
+        >
+          <div
+            onClick={(e) => e.stopPropagation()}
+            style={{
+              position: "relative",
+              background: "#fff",
+              borderRadius: "12px",
+              padding: "1.5rem",
+              width: "100%",
+              maxWidth: "1000px",
+              maxHeight: "90vh",
+              overflowY: "auto"
+            }}
+          >
+
+            {/* ❌ BUTTON CLOSE */}
+            <button
+              onClick={() => setShowAll(false)}
+              style={{
+                position: "absolute",
+                top: "10px",
+                right: "10px",
+                width: "35px",
+                height: "35px",
+                borderRadius: "50%",
+                border: "none",
+                background: "#eee",
+                cursor: "pointer",
+                fontSize: "18px",
+                fontWeight: "bold"
+              }}
+            >
+              ✕
+            </button>
+
+            <h3 style={{ marginBottom: "1rem", textAlign: "center" }}>
+              Semua Dokumentasi
+            </h3>
+
+            <div
+              className="gallery-modal-grid"
+              style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
+                gap: "1rem"
+              }}
+            >
+              {GALLERY.map((img, i) => (
+                <div
+                  key={i}
+                  style={{
+                    position: "relative",
+                    width: "100%",
+                    aspectRatio: "1 / 1",
+                    borderRadius: "10px",
+                    overflow: "hidden"
+                  }}
+                >
+                  <img
+                    src={img}
+                    alt={`gallery-${i}`}
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover"
+                    }}
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* --- SEKSI VISI --- */}
       <Reveal delay={0.8}>

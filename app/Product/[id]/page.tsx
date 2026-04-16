@@ -43,7 +43,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
       <div className="hero-content">
         <h1>{product.name}</h1>
       </div>
-    </section>
+  </section>
 
     {/* --- Bagian Bawah (Deskripsi & Tombol) --- */}
     <section className="product-lower-body">

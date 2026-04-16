@@ -1,14 +1,35 @@
-import { JSX } from "@emotion/react/jsx-runtime";
-import Link from "next/link";
+"use client";
 
-export default function QuickLinkCard({ href, title, icon, desc }: { href: string; title: string; icon: JSX.Element; desc: string }) {
-    return (
-        <Link href={href} style={{ textDecoration: 'none' }}>
-            <div className="quick-link-card">
-                <div className="quick-link-icon">{icon}</div>
-                <h3>{title}</h3>
-                <p>{desc}</p>
-            </div>
-        </Link>
-    );
+import Link from "next/link";
+import { motion } from "framer-motion";
+
+interface Props {
+  href: string;
+  title: string;
+  desc: string;
+  icon: React.ReactNode;
+}
+
+export default function QuickLinkCard({ href, title, desc, icon }: Props) {
+  return (
+    <Link href={href} style={{ textDecoration: "none" }}>
+      <motion.div
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.97 }}
+        className="quick-link-card">
+        {/* ICON */}
+        <div>{icon}</div>
+
+        {/* TITLE */}
+        <h3>
+          {title}
+        </h3>
+
+        {/* DESC */}
+        <p style={{ fontSize: "14px", opacity: 0.9 }}>
+          {desc}
+        </p>
+      </motion.div>
+    </Link>
+  );
 }
