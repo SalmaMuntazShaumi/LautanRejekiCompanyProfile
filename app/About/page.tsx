@@ -94,7 +94,7 @@ export default function AboutPage() {
 
       {/* ================= NEWS ================= */}
       <Reveal>
-        <section style={{ padding: '4rem 10%', backgroundColor: '#f9f9f9', alignItems: 'center', textAlign: 'center', alignContent: 'center' }}>
+        <section style={{ padding: '4rem 10%', backgroundColor: '#f9f9f9', textAlign: 'center'}}>
           <h2 className="section-title" style={{ textAlign: 'center'}}>
             Berita & Kegiatan
           </h2>
