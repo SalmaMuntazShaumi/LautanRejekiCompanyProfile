@@ -5,26 +5,25 @@ import Image from "next/image";
 import { Award, Handshake, Scale, Lightbulb, ShieldCheck, MapPin, Building2, Warehouse, Phone } from "lucide-react";
 import LogoSlider from "@/components/LogoSlider";
 import VisiMisiSlider from "@/components/VisiMisiSlider";
-import { GALLERY, KLIEN_LOGOS, MITRA_LOGOS } from "@/constants";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Navigation, Pagination } from "swiper/modules";
+import { GALLERY, KLIEN_LOGOS, MITRA_LOGOS, NEWS } from "@/constants";
 import CompanyMaps from "@/components/Maps";
 import ContactInfo from "@/components/ContactInfo";
-import { motion } from "framer-motion";
+import { clamp, motion } from "framer-motion";
 import { Reveal } from "@/components/Reveal";
-
-const fadeInUp = {
-  initial: { opacity: 0, y: 20 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true }, // Animasi hanya jalan sekali saat di-scroll
-  transition: { duration: 0.8 }
-};
+import Modal from "@/components/Modal";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper/modules";
 
 export default function AboutPage() {
-  const [showAll, setShowAll] = useState(false);
+
+  const [showAllGallery, setShowAllGallery] = useState(false);
+  const [showAllNews, setShowAllNews] = useState(false);
+  const [selectedNews, setSelectedNews] = useState<any>(null);
+
   return (
     <main style={{ fontFamily: 'Montserrat, sans-serif' }}>
-      {/* SEKSI PROFIL */}
+
+      {/* ================= PROFIL ================= */}
       <section style={{ padding: '5rem 10%', textAlign: 'center' }}>
         <Reveal>
           <h2 className="section-title">PT LAUTAN REJEKI</h2>
@@ -34,262 +33,280 @@ export default function AboutPage() {
         </Reveal>
       </section>
 
+      {/* ================= GALLERY ================= */}
       <section style={{ padding: '3rem 10%', backgroundColor: '#f9f9f9', textAlign: 'center' }}>
         <Reveal>
-          <h2 className="section-title">
-            Gallery Kami
-          </h2>
+          <h2 className="section-title">Gallery Kami</h2>
           <p className="section-desc">
             Berikut adalah beberapa foto kegiatan dan proyek yang telah kami tangani, sebagai bukti komitmen kami dalam memberikan layanan terbaik.
           </p>
         </Reveal>
 
-        {/* 🔥 GRID GALLERY */}
         <div className="gallery-grid">
           {GALLERY.slice(0, 8).map((img, i) => (
             <Reveal key={i} delay={0.5 + i * 0.1}>
               <div className="gallery-img">
-                <img
-                  src={img}
-                  alt={`gallery-${i}`}
-                  style={{
-                    width: "100%",
-                    height: "100%",
-                    objectFit: "cover",
-                    transition: "transform 0.4s ease",
-                  }}/>
+                <img src={img} alt={`gallery-${i}`} />
               </div>
             </Reveal>
           ))}
         </div>
 
         <motion.button
-          onClick={() => setShowAll(true)}
-          whileHover={{ 
-              scale: 1.05,
-              backgroundColor: "#3D6098",
-              color: "#fff",
-              borderColor: "#3D6098"}}
-            whileTap={{ scale: 0.95 }}
-            transition={{ type: "spring", stiffness: 300 }}
-            style={{ 
-              color: '#333', 
-              padding: '12px 24px', 
-              border: '3px solid #E1E1E1', 
-              borderRadius: '8px', 
-              fontFamily: 'Montserrat',
-              fontWeight: '600',
-              cursor: 'pointer',
-              backgroundColor: 'transparent',
-              marginTop: '1.5rem'
-          }}>
-            Lihat Semua
-        </motion.button>
-
-      </section> 
-      {showAll && (
-        <div
-          onClick={() => setShowAll(false)}
+          onClick={() => setShowAllGallery(true)}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
           style={{
-            position: "fixed",
-            inset: 0,
-            backgroundColor: "rgba(0,0,0,0.8)",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            zIndex: 9999,
-            padding: "1rem"
+            marginTop: '1.5rem',
+            padding: '12px 24px',
+            border: '3px solid #E1E1E1',
+            borderRadius: '8px',
+            fontWeight: '600',
+            cursor: 'pointer',
+            backgroundColor: 'transparent'
           }}
         >
-          <div
-            onClick={(e) => e.stopPropagation()}
+          Lihat Semua
+        </motion.button>
+      </section>
+
+      {/* MODAL GALLERY */}
+      <Modal isOpen={showAllGallery} onClose={() => setShowAllGallery(false)} maxWidth="1000px">
+        <h3 style={{ marginBottom: "1rem", textAlign: "center" }}>
+          Semua Dokumentasi
+        </h3>
+
+        <div
+          className="gallery-modal-grid"
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
+            gap: "1rem"
+          }}
+        >
+          {GALLERY.map((img, i) => (
+            <div key={i} style={{ position: "relative", aspectRatio: "1 / 1" }}>
+              <Image src={img} alt={`gallery-${i}`} fill style={{ objectFit: "cover" }} />
+            </div>
+          ))}
+        </div>
+      </Modal>
+
+      {/* ================= NEWS ================= */}
+      <Reveal>
+        <section style={{ padding: '4rem 10%', backgroundColor: '#f9f9f9', alignItems: 'center', textAlign: 'center', alignContent: 'center' }}>
+          <h2 className="section-title" style={{ textAlign: 'center'}}>
+            Berita & Kegiatan
+          </h2>
+
+          <p className="section-desc" style={{ textAlign: 'center', marginBottom: '2rem' }}>
+            Ikuti perkembangan terbaru dari kegiatan dan proyek kami.
+          </p>
+
+          <div className="news-grid">
+            {NEWS.slice(0, 6).map((item, i) => (
+              <Reveal key={item.id} delay={i * 0.2}>
+                <div className="news-card" onClick={() => setSelectedNews(item)}>
+                  <div className="news-image">
+                    <Image src={item.img} alt={item.title} fill style={{ objectFit: 'cover' }} />
+                  </div>
+
+                  <div className="news-content">
+                    <span className="news-date">{item.date}</span>
+                    <h3>{item.title}</h3>
+                    <p>{item.desc}</p>
+                  </div>
+
+                </div>
+              </Reveal>
+            ))}
+          </div>
+
+          <motion.button
+            onClick={() => setShowAllNews(true)}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
             style={{
-              position: "relative",
-              background: "#fff",
-              borderRadius: "12px",
-              padding: "1.5rem",
-              width: "100%",
-              maxWidth: "1000px",
-              maxHeight: "90vh",
-              overflowY: "auto"
+              alignItems: 'center',
+              marginTop: "2rem",
+              padding: "10px 20px",
+              borderRadius: "8px",
+              border: "2px solid #ddd",
+              background: "transparent",
+              cursor: "pointer",
+              fontWeight: "600"
             }}
           >
+            Lihat Semua
+          </motion.button>
+        </section>
+      </Reveal>
 
-            {/* ❌ BUTTON CLOSE */}
-            <button
-              onClick={() => setShowAll(false)}
-              style={{
-                position: "absolute",
-                top: "10px",
-                right: "10px",
-                width: "35px",
-                height: "35px",
-                borderRadius: "50%",
-                border: "none",
-                background: "#eee",
-                cursor: "pointer",
-                fontSize: "18px",
-                fontWeight: "bold"
-              }}
-            >
-              ✕
-            </button>
+      {/* MODAL SEMUA NEWS */}
+      <Modal isOpen={showAllNews} onClose={() => setShowAllNews(false)} maxWidth="1000px">
+        <h3 style={{ textAlign: "center", marginBottom: "1rem" }}>
+          Semua Berita
+        </h3>
 
-            <h3 style={{ marginBottom: "1rem", textAlign: "center" }}>
-              Semua Dokumentasi
-            </h3>
-
+        <div className="news-grid">
+          {NEWS.map((item) => (
             <div
-              className="gallery-modal-grid"
-              style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
-                gap: "1rem"
+              key={item.id}
+              className="news-card"
+              onClick={() => {
+                setSelectedNews(item);
+                setShowAllNews(false); // 🔥 UX FIX
               }}
             >
-              {GALLERY.map((img, i) => (
-                <div
-                  key={i}
-                  style={{
-                    position: "relative",
-                    width: "100%",
-                    aspectRatio: "1 / 1",
-                    borderRadius: "10px",
-                    overflow: "hidden"
-                  }}
-                >
-                  <img
-                    src={img}
-                    alt={`gallery-${i}`}
-                    style={{
-                      width: "100%",
-                      height: "100%",
-                      objectFit: "cover"
-                    }}
-                  />
-                </div>
-              ))}
+              <div className="news-image">
+                <Image src={item.img} alt={item.title} fill style={{ objectFit: "cover" }} />
+              </div>
+
+              <div className="news-content">
+                <span className="news-date">{item.date}</span>
+                <h3>{item.title}</h3>
+                <p>{item.desc}</p>
+              </div>
             </div>
-          </div>
+          ))}
         </div>
-      )}
+      </Modal>
 
-      {/* --- SEKSI VISI --- */}
-      <Reveal delay={0.8}>
-      <VisiMisiSlider></VisiMisiSlider>
-      </Reveal>
+      {/* MODAL DETAIL NEWS */}
+      <Modal isOpen={!!selectedNews} onClose={() => setSelectedNews(null)} maxWidth="800px">
+        {selectedNews && (
+          <>
+            <div style={{ position: "relative", width: "100%", height: "250px", zIndex: 1 }}>
+              <Image src={selectedNews.img} alt={selectedNews.title} fill style={{ objectFit: "cover" }} />
+            </div>
 
-      {/* SEKSI NILAI PERUSAHAAN (Grid Animasi Stagger/Berurutan) */}
+            <div style={{ padding: "1.5rem" }}>
+              <p style={{ fontSize: "clamp(12px, 2.5vw, 16px)", color: "#888" }}>
+                {selectedNews.date}
+              </p>
+
+              <h2 style={{textAlign: 'justify', margin: "0.5rem 0", fontSize: "clamp(18px, 2.5vw, 24px)", fontWeight: 'bold', color: "#333" }}>
+                {selectedNews.title}
+              </h2>
+
+              <p style={{textAlign: 'justify', lineHeight: "1.6", color: "#444", fontSize: "clamp(14px, 2.5vw, 20px)" }}>
+                {selectedNews.desc}
+              </p>
+            </div>
+          </>
+        )}
+      </Modal>
+
+      {/* ================= REST ================= */}
+      <VisiMisiSlider />
+
       <section className="values-section">
-        <Reveal>
-          <h2 className="section-title">Nilai Perusahaan Kami</h2>
-        </Reveal>
-        
+        <h2 className="section-title">Nilai Perusahaan Kami</h2>
         <div className="values-grid">
-          {/* Tambahkan delay berbeda di setiap kartu agar muncul satu per satu */}
-          <Reveal delay={0.1}>
-            <ValueCard icon={<Award size={40}/>} title="Kualitas" desc="Produk unggul dengan standar kualitas terbaik" />
-          </Reveal>
-          <Reveal delay={0.2}>
-            <ValueCard icon={<Handshake size={40}/>} title="Layanan Terbaik" desc="Pelayanan yang prima adalah pedoman kami" />
-          </Reveal>
-          <Reveal delay={0.3}>
-            <ValueCard icon={<Scale size={40}/>} title="Integritas" desc="Integritas hal penting dalam perusahaan kami" />
-          </Reveal>
-          <Reveal delay={0.4}>
-            <ValueCard icon={<Lightbulb size={40}/>} title="Inovatif" desc="Inovasi cerdas untuk konsumen dan produsen" />
-          </Reveal>
-          <Reveal delay={0.5}>
-            <ValueCard icon={<ShieldCheck size={40}/>} title="Keamanan" desc="Keamanan bagi seluruh hal yang berkaitan dengan kami" />
-          </Reveal>
+          <ValueCard icon={<Award size={40}/>} title="Kualitas" desc="Produk unggul dengan standar kualitas terbaik" />
+          <ValueCard icon={<Handshake size={40}/>} title="Layanan Terbaik" desc="Pelayanan yang prima adalah pedoman kami" />
+          <ValueCard icon={<Scale size={40}/>} title="Integritas" desc="Integritas hal penting dalam perusahaan kami" />
+          <ValueCard icon={<Lightbulb size={40}/>} title="Inovatif" desc="Inovasi cerdas untuk konsumen dan produsen" />
+          <ValueCard icon={<ShieldCheck size={40}/>} title="Keamanan" desc="Keamanan bagi seluruh hal yang berkaitan dengan kami" />
         </div>
       </section>
-        
-      {/* --- PARTNERSHIP --- */}
+
       <Reveal>
-      <section style={{ padding: '2rem 0', textAlign: 'center' }}>
-        <h2 className="section-title">Kerja sama kami</h2>
-        <p className="section-desc">PT Lautan Rejeki menjalin kerja sama dengan berbagai mitra untuk mendistribusikan pipa konstruksi berkualitas, didukung oleh layanan profesional dan proses yang transparan.</p>
-        <LogoSlider items={MITRA_LOGOS} />
-      </section>
+        <section style={{ padding: '2rem 0', textAlign: 'center' }}>
+          <h2 className="section-title">Kerja sama kami</h2>
+          <p className="section-desc" style={{ width: '60%', margin: '0 auto 2rem' }}>
+            PT Lautan Rejeki menjalin kerja sama dengan berbagai mitra untuk mendistribusikan pipa konstruksi berkualitas, didukung oleh layanan profesional dan proses yang transparan.
+          </p>
+          <LogoSlider items={MITRA_LOGOS} />
+        </section>
       </Reveal>
 
-      {/* SEKSI KLIEN */}
+
       <Reveal>
-      <section style={{ padding: '2rem 0', textAlign: 'center' }}>
+        <section style={{ padding: '2rem 0', textAlign: 'center' }}>
           <h2 className="section-title">Klien kami</h2>
           <LogoSlider items={KLIEN_LOGOS} />
-      </section>
+        </section>
       </Reveal>
 
-        <Reveal delay={0.5}>
+      <Reveal delay={0.5}>
         <section style={{ padding: '2rem 0', textAlign: 'center' }}>
-            <h2 className="section-title">Referensi Proyek</h2>
-            <Swiper
-                modules={[Autoplay]}
-                autoplay={{ delay: 3000 }}
-                spaceBetween={30}
-                slidesPerView={1}
-                style={{ height: '300px', borderRadius: '12px', overflow: 'hidden', padding: '0 5%' }}
+          <h2 className="section-title">Referensi Proyek</h2>
+
+          <Swiper
+            modules={[Autoplay]}
+            autoplay={{ delay: 3000 }}
+            spaceBetween={30}
+            slidesPerView={1}
+            style={{
+              height: '300px',
+              borderRadius: '12px',
+              overflow: 'hidden',
+              padding: '0 5%'
+            }}
+          >
+            {banners.map((banner) => (
+              <SwiperSlide key={banner.id}>
+                
+                <div
+                  style={{
+                    position: 'relative',
+                    width: '100%',
+                    height: '100%',
+                    borderRadius: '15px',
+                    overflow: 'hidden'
+                  }}
                 >
-                {banners.map((banner) => (
-                    <SwiperSlide key={banner.id}>
-                    {/* Container utama harus relative */}
-                    <div style={{ position: 'relative', width: '100%', height: '100%', borderRadius: '15px', overflow: 'hidden' }}>
-                        
-                        {/* 1. Gambar Background */}
-                        <Image 
-                        src={banner.img} 
-                        alt={banner.title} 
-                        fill 
-                        style={{ objectFit: 'cover' }} 
-                        />
 
-                        {/* 2. Overlay Gelap (Opsional, agar teks terbaca) */}
-                        <div style={{ 
-                        position: 'absolute', 
-                        inset: 0, 
-                        background: 'linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 60%)',
-                        zIndex: 1 
-                        }} />
+                  {/* 1. Background Image */}
+                  <Image
+                    src={banner.img}
+                    alt={banner.title}
+                    fill
+                    style={{ objectFit: 'cover' }}
+                  />
 
-                        {/* 3. Konten Teks */}
-                        <div style={{ 
-                        position: 'absolute', 
-                        bottom: '40px', 
-                        left: '40px', 
-                        color: 'white', 
-                        alignItems: 'flex-start',
-                        textAlign: 'left',
-                        zIndex: 2,
-                        maxWidth: '80%'
-                        }}>
-                        <h2 style={{ fontSize: '2rem', fontWeight: 'bold' }}>
-                            {banner.title}
-                        </h2>
-                        <p style={{ fontSize: '1.1rem', opacity: 0.9, marginTop: '8px' }}>
-                            {banner.desc}
-                        </p>
-                        </div>
+                  {/* 2. Gradient Overlay (INI YANG BIKIN BEDANYA!) */}
+                  <div
+                    style={{
+                      position: 'absolute',
+                      inset: 0,
+                      background:
+                        'linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 60%)',
+                      zIndex: 1
+                    }}
+                  />
 
-                    </div>
-                    </SwiperSlide>
-                ))}
-            </Swiper>
+                  {/* 3. TEXT (POSISI & STYLE ASLI) */}
+                  <div
+                    style={{
+                      position: 'absolute',
+                      bottom: '40px',
+                      left: '40px',
+                      color: 'white',
+                      textAlign: 'left',
+                      zIndex: 2,
+                      maxWidth: '80%'
+                    }}
+                  >
+                    <h2 style={{ fontSize: '2rem', fontWeight: 'bold' }}>
+                      {banner.title}
+                    </h2>
+
+                    <p style={{ fontSize: '1.1rem', opacity: 0.9, marginTop: '8px' }}>
+                      {banner.desc}
+                    </p>
+                  </div>
+
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </section>
-        </Reveal>
+      </Reveal>
 
-      {/* --- KONTAK & LOKASI (GRID BAWAH) --- */}
-        <section style={{ padding: '5rem 10%', backgroundColor: '#fff', borderTop: '1px solid #eee' }}>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '3rem' }}>
-            <ContactInfo icon={<Building2 />} title="Business Unit" list={["PT Lautan Rejeki Luas (2014)", "PT Aneka Rejeki Utama (2017)", "PT Kreasi Panen Jaya (2019)", "PT Jaya Panen Utama (2024)"]} />
-            <ContactInfo icon={<MapPin />} title="Head Office" list={["Jl. Meruya Ilir Raya No.1 4, RT4/RW1, Serengseng, Kec. Kembangan, Kota Jakarta Barat, Daerah Khusus Ibukota Jakarta 11630"]} />
-            <ContactInfo icon={<Warehouse />} title="Warehouse" list={["Jakarta . Serang . Tegal . Cirebon . Karawang . Bogor . Bandung . Sukabumi . Cianjur"]} />
-            <ContactInfo icon={<Phone />} title="Our Contact" list={["Email : info@lautanrejeki.co.id", "Instagram : Lautanrejekiofficial", "Phone : 021-5863617", "Site : www.lautanrejeki.co.id"]} />
-            </div>
-        </section>
+      <CompanyMaps />
 
-        <CompanyMaps></CompanyMaps>
     </main>
   );
 }
