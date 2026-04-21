@@ -260,15 +260,15 @@
   }
 
   .news-grid {
-    grid-template-columns: repeat(2, 1fr) !important; /* 1 kolom di HP */
-    gap: 12px !important;
+    grid-template-columns: repeat(1, 1fr) !important; /* 1 kolom di HP */
+    gap: 12px !important; 
     padding: 0 10px !important;
     justify-items: center;
   }
 
   .news-card {
-    max-width: 320px; 
-    width: 200px;
+    max-width: 100% !important;
+    width: 100% !important;
   }
 
   .news-image {
