@@ -269,6 +269,7 @@
   .news-card {
     max-width: 100% !important;
     width: 100% !important;
+    overflow: hidden;
   }
 
   .news-image {
@@ -286,7 +287,6 @@
 
   .news-content p {
     font-size: 0.5rem;
-    -webkit-line-clamp: 2;
   }
 
   .news-date {

@@ -175,7 +175,8 @@
 
 .news-card {
   background: white;
-  border-radius: 12px;
+  border-radius: 12px; /* Radius yang kamu inginkan */
+  overflow: hidden;    /* WAJIB: Agar gambar di dalamnya ikut terpotong melengkung */
   transition: transform 0.3s ease;
   cursor: pointer;
   width: 100%;
@@ -189,7 +190,7 @@
 .news-image {
   position: relative;
   width: 100%;
-  height: 200px;
+  height: 200px; 
 }
 
 .news-content {
