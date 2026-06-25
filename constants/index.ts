@@ -1,4 +1,6 @@
+import { desc } from "framer-motion/client";
 import { Award, Handshake, Scale, Lightbulb, ShieldCheck, LucideIcon } from "lucide-react";
+import { title } from "process";
 
 export const CATEGORIES = [
   { name: 'Pipa Rucika', img: '/images/product_category/cat_rucika.png', slug: 'pipa-rucika' },
@@ -135,7 +137,7 @@ export const ALL_PRODUCTS: Product[] = [
    },
   { id: 5, 
     name: "Pipa HDPE", 
-    img: "/images/product_rucika/hdpe.png", 
+    img: "/images/product_rucika/black.png", 
     brand: "Rucika",
     desc: "RUCIKA BLACK merupakan sistem perpipaan yang terpercaya dengan menggunakan pipa HDPE yang memiliki karakteristik istimewa dan sesuai untuk aplikasi air minum karena terbuat dari Polyethylene (PE). Materialnya memiliki tingkat elastisitas yang tinggi dan tingkat keretakan yang rendah, sehingga memiliki life time lebih dari 50 tahun.",
     catalogUrl: "https://drive.google.com/file/d/1He_iZ-OeuTSIINHG9Unhz82Us85z8PKl/view"
@@ -345,18 +347,19 @@ export const GALLERY = [
 export const NEWS = [
   {
     id: 1,
+    title: "Selamat Hari Buruh Nasional! PT Lautan Rejeki Luas Berkomitmen Mendukung Kesejahteraan Pekerja",
+    desc: "Dalam rangka memperingati Hari Buruh Internasional, PT Lautan Rejeki Luas mengucapkan selamat kepada seluruh pekerja di Indonesia. Kami berkomitmen untuk terus mendukung kesejahteraan pekerja melalui berbagai inisiatif, termasuk peningkatan kondisi kerja, pelatihan keterampilan, dan program kesejahteraan karyawan. Kami percaya bahwa pekerja adalah aset berharga dalam pembangunan bangsa, dan kami akan terus berupaya menciptakan lingkungan kerja yang inklusif, aman, dan produktif bagi semua karyawan kami. Selamat Hari Buruh internasional, 01 Mei 2026! Bersama kita maju untuk masa depan yang lebih baik bagi semua pekerja di Indonesia.",
+    img: "/images/news/buruh.png", // sesuaikan dengan gambar kamu
+    date: "Mei 2026"
+  },
+  {
+    id: 2,
     title: "Direktur Keuangan PT Lautan Rejeki Luas Hadiri Audiensi IKPI dengan Wapres RI",
     desc: "Direktur Keuangan PT Lautan Rejeki Luas, Bapak Sundara Ichsan, yang juga menjabat sebagai Ketua Bidang Pendidikan IKPI, menghadiri audiensi bersama Wakil Presiden Republik Indonesia. Pertemuan ini membahas perkembangan serta arah kebijakan perpajakan terbaru di Indonesia, sebagai bagian dari upaya meningkatkan efektivitas dan transparansi sistem perpajakan nasional. Kegiatan ini mencerminkan sinergi antara praktisi dan pemerintah dalam mendorong kebijakan yang adaptif terhadap dinamika ekonomi serta mendukung pertumbuhan yang berkelanjutan.",
     img: "/images/news/news1.jpg", // sesuaikan dengan gambar kamu
     date: "April 2026"
-  },
-  // {
-  //   id: 2,
-  //   title: "Direktur Keuangan PT Lautan Rejeki Luas Hadiri Audiensi IKPI dengan Wapres RI",
-  //   desc: "Direktur Keuangan PT Lautan Rejeki Luas, Bapak Sundara Ichsan, yang juga menjabat sebagai Ketua Bidang Pendidikan IKPI, menghadiri audiensi bersama Wakil Presiden Republik Indonesia. Pertemuan ini membahas perkembangan serta arah kebijakan perpajakan terbaru di Indonesia, sebagai bagian dari upaya meningkatkan efektivitas dan transparansi sistem perpajakan nasional. Kegiatan ini mencerminkan sinergi antara praktisi dan pemerintah dalam mendorong kebijakan yang adaptif terhadap dinamika ekonomi serta mendukung pertumbuhan yang berkelanjutan.",
-  //   img: "/images/news/news1.jpg", // sesuaikan dengan gambar kamu
-  //   date: "April 2026"
-  // },
+  }
+  
   // {
   //   id: 3,
   //   title: "Direktur Keuangan PT Lautan Rejeki Luas Hadiri Audiensi IKPI dengan Wapres RI",

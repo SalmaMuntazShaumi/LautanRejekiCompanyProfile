@@ -74,7 +74,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <div className="footer-main-content">
             <div className="footer-address">
               <h3>PT LAUTAN REJEKI</h3>
-              <p>Jl. Meruya Ilir Raya No.1 4, RT.4/RW.1, Srengseng,<br />Kec. Kembangan, Jakarta Barat 11630</p>
+              <p>Jl. Meruya Ilir Raya No.1, RT.4/RW.1, Srengseng,<br />Kec. Kembangan, Jakarta Barat 11630</p>
             </div>
             
             <div className="footer-socials">

@@ -13,8 +13,9 @@ export default function HeroSlider() {
   const banners = [
     { id: 1, color: '#ff0000', img: '/images/banner/standard.png' },
     { id: 2, color: '#00ff00', img: '/images/banner/green.png' },
-    { id: 3, color: '#4d4d4d', img: '/images/banner/hdpe.png' },
-    { id: 4, color: '#1a4a8e', img: '/images/banner/extrana.png' },
+    { id: 3, color: '#344A84', img: '/images/banner/hdpe_rucika.png'},
+    { id: 4, color: '#4d4d4d', img: '/images/banner/hdpe.png' },
+    { id: 5, color: '#1a4a8e', img: '/images/banner/extrana.png' },
   ];
 
   return (
