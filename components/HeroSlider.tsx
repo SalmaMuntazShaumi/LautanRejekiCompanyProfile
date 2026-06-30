@@ -3,6 +3,7 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 import Image from 'next/image';
+import Link from 'next/link';
 
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -24,12 +25,23 @@ export default function HeroSlider() {
       navigation
       pagination={{ clickable: true }}
       autoplay={{ delay: 3000 }}
-      style={{ height: '300px' }}
+      className="hero-slider"
     >
       {banners.map((banner) => (
         <SwiperSlide key={banner.id} style={{ backgroundColor: banner.color }}>
-          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }}>
-            <Image src={banner.img} alt="Banner" width={600} height={300} style={{ objectFit: 'contain' }} />
+          <div className="hero-slide">
+            <div className="hero-copy">
+              <span className="eyebrow">Distributor pipa dan kabel</span>
+              <h1>Solusi material proyek yang siap mendukung kebutuhan lapangan</h1>
+              <p>Produk terpercaya dari Rucika, Shuanglin, dan Extrana dengan layanan konsultasi yang responsif.</p>
+              <div className="hero-actions">
+                <Link href="/Product" className="btn-primary">Lihat Produk</Link>
+                <Link href="/Contact" className="btn-secondary">Konsultasi</Link>
+              </div>
+            </div>
+            <div className="hero-image-wrap">
+              <Image src={banner.img} alt="Banner produk PT Lautan Rejeki" width={720} height={360} priority={banner.id === 1} className="hero-image" />
+            </div>
           </div>
         </SwiperSlide>
       ))}

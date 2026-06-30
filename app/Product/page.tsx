@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useState, useEffect, Suspense } from "react";
+import { useState, Suspense } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
@@ -26,7 +26,7 @@ const staggerContainer = {
 // 1. Wrapper Utama dengan Suspense (Wajib di Next.js kalau pakai useSearchParams)
 export default function ProductsPage() {
   return (
-    <Suspense fallback={<div style={{ padding: '5rem', textAlign: 'center' }}>Memuat Produk...</div>}>
+    <Suspense fallback={<div className="inline-loading">Memuat produk...</div>}>
       <ProductsContent />
     </Suspense>
   );
@@ -37,15 +37,14 @@ function ProductsContent() {
   const searchParams = useSearchParams();
   const brandParam = searchParams.get("brand"); 
 
-  const [activeTab, setActiveTab] = useState("Rucika");
-  const [searchQuery, setSearchQuery] = useState("");
+  const getInitialTab = () => {
+    if (brandParam === "pipa-shuanglin") return "Shuanglin";
+    if (brandParam === "kabel-extrana") return "Extrana";
+    return "Rucika";
+  };
 
-  // Sinkronisasi: Jika user datang dari Beranda membawa ?brand=...
-  useEffect(() => {
-    if (brandParam === "pipa-rucika") setActiveTab("Rucika");
-    if (brandParam === "pipa-shuanglin") setActiveTab("Shuanglin");
-    if (brandParam === "kabel-extrana") setActiveTab("Extrana");
-  }, [brandParam]);
+  const [activeTab, setActiveTab] = useState(getInitialTab);
+  const [searchQuery, setSearchQuery] = useState("");
 
   // Logika Filter
   const filteredProducts = ALL_PRODUCTS.filter((product) => {
@@ -56,8 +55,8 @@ function ProductsContent() {
   });
 
   return (
-    <main style={{ padding: '4rem 5%', textAlign: 'center', minHeight: '80vh' }}>
-      <motion.p {...fadeInUp} style={{ color: '#666', marginBottom: '0.5rem' }}>
+    <main className="product-page">
+      <motion.p {...fadeInUp} className="eyebrow">
         Cari produk yang kamu inginkan
       </motion.p>
 
@@ -85,17 +84,14 @@ function ProductsContent() {
 
       {/* --- SEARCH BAR --- */}
       <motion.div
-        style={{ display: 'flex', justifyContent: 'center', marginBottom: '1rem' }}
+        className="search-bar-wrap"
         {...fadeInUp}
       >
         <motion.input 
           type="text"
           placeholder={`Cari di kategori ${activeTab}...`}
           whileFocus={{ scale: 1.02 }}
-          style={{ 
-            width: '100%', maxWidth: '600px', padding: '12px 20px', borderRadius: '10px', 
-            border: '1px solid #ddd', backgroundColor: '#f9f9f9'
-          }}
+          className="product-search-input"
           onChange={(e) => setSearchQuery(e.target.value)}
         />
       </motion.div>

@@ -15,7 +15,7 @@ export default function LogoSlider({ items }: { items: LogoItem[] }) {
   if (!items || items.length === 0) return null;
 
   return (
-    <div style={{ padding: '0 5%' }}>
+    <div className="logo-slider-wrap">
       <Swiper
         key={swiperKey} // Reset Swiper saat items berubah
         modules={[Navigation, Autoplay]}
@@ -33,18 +33,7 @@ export default function LogoSlider({ items }: { items: LogoItem[] }) {
       >
         {items.map((logo) => (
           <SwiperSlide key={logo.id}>
-            <div style={{ 
-              backgroundColor: 'white', 
-              height: '180px', 
-              width: '100%', // Pastikan lebar terkunci 100% dari kolom slider
-              display: 'flex', 
-              justifyContent: 'center', 
-              alignItems: 'center', 
-              borderRadius: '8px',
-              border: '1px solid #f0f0f0', 
-              padding: '20px',
-              boxSizing: 'border-box' // Mencegah padding merusak lebar
-            }}>
+            <div className="logo-card">
               <div style={{ position: 'relative', width: '100%', height: '100%' }}>
                 <Image 
                   src={logo.img} 

@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-export default function SegmentationCard({ name, img, slug }: { name: string; img: string; slug: string }) {
+export default function SegmentationCard({ name, img }: { name: string; img: string; slug?: string }) {
     return (
         <div className="card-container" style={{ position: 'relative', height: '250px', borderRadius: '12px', overflow: 'hidden' }}>
             {/* Container Gambar untuk Animasi Zoom */}

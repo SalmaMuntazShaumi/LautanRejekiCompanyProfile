@@ -2,9 +2,6 @@
 export default function CompanyMaps() {
   // Alamat & Koordinat PT Lautan Rejeki (Cengkareng/Meruya)
   // Query ini akan mencari lokasi spesifik di Google Maps
-  const mapQuery = "PT+Lautan+Rejeki+Jakarta+Barat";
-  const mapEmbedUrl = `https://www.google.com/maps/embed/v1/place?key=YOUR_API_KEY_HERE&q=${mapQuery}`;
-
   // Opsi GRATIS tanpa API Key (menggunakan Google Maps Search Embed)
   const freeEmbedUrl = "https://maps.google.com/maps?q=PT%20Lautan%20Rejeki%20Meruya%20Ilir&t=&z=15&ie=UTF8&iwloc=&output=embed";
 

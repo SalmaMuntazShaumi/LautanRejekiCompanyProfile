@@ -2,9 +2,9 @@
 
 import { useState } from "react";
 import { Montserrat } from "next/font/google";
-import { FaFacebook, FaInstagram, FaWhatsapp, FaYoutube } from "react-icons/fa";
+import { FaInstagram, FaWhatsapp, FaYoutube } from "react-icons/fa";
 import { AiFillTikTok } from "react-icons/ai";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
@@ -21,40 +21,37 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   // 1. Definisikan fungsi di sini agar bisa dipakai di dalam scope RootLayout
   const getLinkStyle = (path: string) => {
     const isActive = pathname === path || (path === "/Product" && pathname.startsWith("/Product"));
-    return {
-      color: isActive ? '#FF3B30' : 'black',
-      fontWeight: isActive ? '700' : '500',
-    };
+    return isActive ? "active" : "";
   };
 
   return (
     <html lang="en">
       <body className={montserrat.className}>
         <header className="main-header">
-          <Link href="/">
+          <Link href="/" className="brand-link" aria-label="PT Lautan Rejeki">
             <Image src="/images/logo_perusahaan.png" alt="Logo" width={210} height={70} priority className="company-logo" />
           </Link>
 
           <nav className="desktop-nav">
             <ul className="nav-list">
-              <li><Link href="/" style={getLinkStyle("/")}>Beranda</Link></li>
-              <li><Link href="/About" style={getLinkStyle("/About")}>Tentang</Link></li>
-              <li><Link href="/Product" style={getLinkStyle("/Product")}>Produk</Link></li>
-              <li><Link href="/Contact" style={getLinkStyle("/Contact")}>Kontak</Link></li>
+              <li><Link href="/" className={getLinkStyle("/")}>Beranda</Link></li>
+              <li><Link href="/About" className={getLinkStyle("/About")}>Tentang</Link></li>
+              <li><Link href="/Product" className={getLinkStyle("/Product")}>Produk</Link></li>
+              <li><Link href="/Contact" className={getLinkStyle("/Contact")}>Kontak</Link></li>
             </ul>
           </nav>
 
-          <button className="mobile-menu-btn" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+          <button className="mobile-menu-btn" onClick={() => setIsMenuOpen(!isMenuOpen)} aria-label="Buka menu navigasi" aria-expanded={isMenuOpen}>
             {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
 
           {isMenuOpen && (
             <div className="mobile-menu-overlay">
               <ul className="mobile-nav-list"> {/* Tambahkan class ini */}
-                <li onClick={() => setIsMenuOpen(false)}><Link href="/" style={getLinkStyle("/")}>Beranda</Link></li>
-                <li onClick={() => setIsMenuOpen(false)}><Link href="/About" style={getLinkStyle("/About")}>Tentang</Link></li>
-                <li onClick={() => setIsMenuOpen(false)}><Link href="/Product" style={getLinkStyle("/Product")}>Produk</Link></li>
-                <li onClick={() => setIsMenuOpen(false)}><Link href="/Contact" style={getLinkStyle("/Contact")}>Kontak</Link></li>
+                <li onClick={() => setIsMenuOpen(false)}><Link href="/" className={getLinkStyle("/")}>Beranda</Link></li>
+                <li onClick={() => setIsMenuOpen(false)}><Link href="/About" className={getLinkStyle("/About")}>Tentang</Link></li>
+                <li onClick={() => setIsMenuOpen(false)}><Link href="/Product" className={getLinkStyle("/Product")}>Produk</Link></li>
+                <li onClick={() => setIsMenuOpen(false)}><Link href="/Contact" className={getLinkStyle("/Contact")}>Kontak</Link></li>
               </ul>
             </div>
           )}
@@ -65,10 +62,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <footer className="main-footer">
           <div className="footer-links-row">
             {/* Pakai getLinkStyle di sini juga aman karena masih dalam satu scope */}
-            <Link href="/" style={getLinkStyle("/")}>Beranda</Link>
-            <Link href="/About" style={getLinkStyle("/About")}>Tentang</Link>
-            <Link href="/Product" style={getLinkStyle("/Product")}>Produk</Link>
-            <Link href="/Contact" style={getLinkStyle("/Contact")}>Kontak</Link>
+            <Link href="/" className={getLinkStyle("/")}>Beranda</Link>
+            <Link href="/About" className={getLinkStyle("/About")}>Tentang</Link>
+            <Link href="/Product" className={getLinkStyle("/Product")}>Produk</Link>
+            <Link href="/Contact" className={getLinkStyle("/Contact")}>Kontak</Link>
           </div>
 
           <div className="footer-main-content">
@@ -82,13 +79,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <Link href="https://wa.me/6287780450268?text=Halo%20Admin,%20saya%20ingin%20bertanya%20tentang%20katalog%20produk%20dan%20harga%20yang%20ditawarkan." 
                 target="_blank" 
                 rel="noopener noreferrer"
-                style={{ textDecoration: 'none' }}><FaWhatsapp size={35} color="black" /></Link>
+                style={{ textDecoration: 'none' }} aria-label="WhatsApp PT Lautan Rejeki"><FaWhatsapp size={35} /></Link>
               <Link href="https://www.instagram.com/lautanrejekigroupofficial" target="_blank" 
-                rel="noopener noreferrer"><FaInstagram size={35} color="black" /></Link>
+                rel="noopener noreferrer" aria-label="Instagram PT Lautan Rejeki"><FaInstagram size={35} /></Link>
               <Link href="https://www.youtube.com/@LautanRejekiOfficial" target="_blank" 
-                rel="noopener noreferrer"><FaYoutube size={35} color="black" /></Link>
+                rel="noopener noreferrer" aria-label="YouTube PT Lautan Rejeki"><FaYoutube size={35} /></Link>
               <Link href="https://www.tiktok.com/@lautanrejekigroup" target="_blank" 
-                rel="noopener noreferrer"><AiFillTikTok size={35} color="black" /></Link>
+                rel="noopener noreferrer" aria-label="TikTok PT Lautan Rejeki"><AiFillTikTok size={35} /></Link>
             </div>
           </div>
         </footer>

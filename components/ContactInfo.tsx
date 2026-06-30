@@ -1,4 +1,12 @@
-export default function ContactInfo({ icon, title, list }: any) {
+import type { ReactNode } from "react";
+
+interface ContactInfoProps {
+  icon: ReactNode;
+  title: string;
+  list: string[];
+}
+
+export default function ContactInfo({ icon, title, list }: ContactInfoProps) {
   return (
     <div>
       <h4 style={{ fontWeight: 'bold', display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '1rem' }}>

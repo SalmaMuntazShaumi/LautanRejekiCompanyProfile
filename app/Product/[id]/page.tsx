@@ -3,7 +3,6 @@
 import { useState, use } from 'react';
 import Image from 'next/image';
 import { ALL_PRODUCTS } from '../../../constants'; // Import your updated data
-import { param } from 'framer-motion/client';
 
 export default function ProductDetailPage({ params }: { params: Promise<{ id: string }> }) {
 

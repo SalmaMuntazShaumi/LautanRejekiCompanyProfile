@@ -17,16 +17,14 @@ export default function QuickLinkCard({ href, title, desc, icon }: Props) {
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.97 }}
         className="quick-link-card">
-        {/* ICON */}
-        <div>{icon}</div>
+        <div className="quick-link-icon">{icon}</div>
 
         {/* TITLE */}
         <h3>
           {title}
         </h3>
 
-        {/* DESC */}
-        <p style={{ fontSize: "14px", opacity: 0.9 }}>
+        <p>
           {desc}
         </p>
       </motion.div>

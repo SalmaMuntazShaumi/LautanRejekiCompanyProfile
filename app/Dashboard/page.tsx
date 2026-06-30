@@ -2,10 +2,7 @@
 import { motion } from "framer-motion";
 
 import Image from "next/image";
-import Link from "next/link";
-import { ChevronDown, Package2, Info, Contact, Award, Handshake, Scale, Lightbulb, ShieldCheck } from "lucide-react";
-import { FaFacebook, FaInstagram, FaWhatsapp, FaYoutube } from "react-icons/fa";
-import { AiFillTikTok } from "react-icons/ai";
+import { Package2, Info, Contact, Award, Handshake, Scale, Lightbulb, ShieldCheck } from "lucide-react";
 
 // Import Komponen Pendukung
 import HeroSlider from "@/components/HeroSlider";
@@ -25,14 +22,16 @@ const fadeInUp = {
   transition: { duration: 0.8 }
 };
 
-export default function Dashboard({ data }: { data: any }) {
+export default function Dashboard({ data }: { data: unknown }) {
+  void data;
+
   return (
     <>
       <HeroSlider />
       <ContactUs />
 
       {/* --- QUICK LINKS --- */}
-      <section style={{ padding: '2rem 5%', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '2rem' }}>
+      <section className="quick-link-section">
   
         {[
           {
@@ -67,7 +66,7 @@ export default function Dashboard({ data }: { data: any }) {
       </section>
   
       {/* --- KATEGORI PRODUK --- */}
-    <section className="category-section" style={{ padding: '4rem 5%', textAlign: 'center' }}>
+    <section className="category-section section-band">
       <motion.h2
         className="section-title"
         initial={{ opacity: 0, y: -20 }}
@@ -86,7 +85,7 @@ export default function Dashboard({ data }: { data: any }) {
     </section>
 
     {/* --- SEGMENTASI PASAR --- */}
-    <section style={{ padding: '2rem 5%', textAlign: 'center', backgroundColor: '#fff' }}>
+    <section className="segmentation-section section-band white">
       <motion.h2 className="section-title"
         initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -122,7 +121,7 @@ export default function Dashboard({ data }: { data: any }) {
     </section>
 
       {/* --- NILAI PERUSAHAAN (FULL CENTERED) --- */}
-      <section style={{ padding: '2rem 5%', textAlign: 'center' }}>
+      <section className="values-home-section section-band">
         <motion.h2 className="section-title"
         initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -135,11 +134,7 @@ export default function Dashboard({ data }: { data: any }) {
         transition={{ duration: 0.6 }}> 
         Kami selalu menjunjung tinggi nilai-nilai perusahaan dalam setiap aspek pekerjaan kami.
         </motion.p>
-        <div style={{
-          backgroundColor: '#3D6098', borderRadius: '12px', padding: '2rem 1rem', 
-          display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))', 
-          gap: '2rem', marginTop: '2rem', color: 'white'
-        }}>
+        <div className="values-home-grid">
           <ValueItem icon={<Award size={62} />} label="Berkualitas" />
           <ValueItem icon={<Handshake size={62} />} label="Layanan Terbaik" />
           <ValueItem icon={<Scale size={62} />} label="Jujur" />
@@ -149,7 +144,7 @@ export default function Dashboard({ data }: { data: any }) {
       </section>
 
       {/* --- PARTNERSHIP --- */}
-      <section style={{ padding: '2rem 0', textAlign: 'center' }}>
+      <section className="partners-section section-band">
         <motion.h2 className="section-title"
         initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}

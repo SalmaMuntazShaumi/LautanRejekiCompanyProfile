@@ -1,5 +1,6 @@
 'use client';
 import { useState } from "react";
+import type { ReactNode } from "react";
 
 import Image from "next/image";
 import { Award, Handshake, Scale, Lightbulb, ShieldCheck, MapPin, Building2, Warehouse, Phone } from "lucide-react";
@@ -8,7 +9,7 @@ import VisiMisiSlider from "@/components/VisiMisiSlider";
 import { GALLERY, KLIEN_LOGOS, MITRA_LOGOS, NEWS } from "@/constants";
 import CompanyMaps from "@/components/Maps";
 import ContactInfo from "@/components/ContactInfo";
-import { clamp, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { Reveal } from "@/components/Reveal";
 import Modal from "@/components/Modal";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -18,13 +19,13 @@ export default function AboutPage() {
 
   const [showAllGallery, setShowAllGallery] = useState(false);
   const [showAllNews, setShowAllNews] = useState(false);
-  const [selectedNews, setSelectedNews] = useState<any>(null);
+  const [selectedNews, setSelectedNews] = useState<NewsItem | null>(null);
 
   return (
     <main style={{ fontFamily: 'Montserrat, sans-serif' }}>
 
       {/* ================= PROFIL ================= */}
-      <section style={{ padding: '4rem 10%', textAlign: 'center' }}>
+      <section style={{ padding: '2rem 10%', textAlign: 'center' }}>
         <Reveal>
           <h2 className="section-title">PT LAUTAN REJEKI</h2>
           <p className="section-desc">
@@ -47,8 +48,8 @@ export default function AboutPage() {
         <div className="gallery-grid">
           {GALLERY.slice(0, 8).map((img, i) => (
             <Reveal key={i} delay={0.5 + i * 0.1}>
-              <div className="gallery-img">
-                <img src={img} alt={`gallery-${i}`} />
+              <div className="gallery-card">
+                <Image src={img} alt={`gallery-${i}`} fill className="gallery-img" />
               </div>
             </Reveal>
           ))}
@@ -214,7 +215,7 @@ export default function AboutPage() {
       </section>
 
       <Reveal>
-        <section style={{ padding: '4rem 10%', textAlign: 'center' }}>
+        <section style={{ padding: '2rem 0', textAlign: 'center' }}>
           <h2 className="section-title">Kerja sama kami</h2>
           <p className="section-desc">
             PT Lautan Rejeki menjalin kerja sama dengan berbagai mitra untuk mendistribusikan pipa konstruksi berkualitas, didukung oleh layanan profesional dan proses yang transparan.
@@ -227,6 +228,7 @@ export default function AboutPage() {
       <Reveal>
         <section style={{ padding: '2rem 0', textAlign: 'center' }}>
           <h2 className="section-title">Klien kami</h2>
+          <p className="section-desc"></p>
           <LogoSlider items={KLIEN_LOGOS} />
         </section>
       </Reveal>
@@ -234,7 +236,7 @@ export default function AboutPage() {
       <Reveal delay={0.5}>
         <section style={{ padding: '2rem 0', textAlign: 'center' }}>
           <h2 className="section-title">Referensi Proyek</h2>
-
+          <p className="section-desc"></p>
           <Swiper
             modules={[Autoplay]}
             autoplay={{ delay: 3000 }}
@@ -322,7 +324,21 @@ export default function AboutPage() {
   );
 }
 
-function ValueCard({ icon, title, desc }: any) {
+interface NewsItem {
+  id: number;
+  title: string;
+  desc: string;
+  img: string;
+  date: string;
+}
+
+interface ValueCardProps {
+  icon: ReactNode;
+  title: string;
+  desc: string;
+}
+
+function ValueCard({ icon, title, desc }: ValueCardProps) {
   return (
     <motion.div className="value-card">
       <div className="value-icon">{icon}</div>
