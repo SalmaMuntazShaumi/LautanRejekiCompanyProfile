@@ -25,7 +25,7 @@ export default function AboutPage() {
     <main style={{ fontFamily: 'Montserrat, sans-serif' }}>
 
       {/* ================= PROFIL ================= */}
-      <section style={{ padding: '2rem 10%', textAlign: 'center' }}>
+      <section style={{ padding: '4rem 10%', textAlign: 'center' }}>
         <Reveal>
           <h2 className="section-title">PT LAUTAN REJEKI</h2>
           <p className="section-desc">

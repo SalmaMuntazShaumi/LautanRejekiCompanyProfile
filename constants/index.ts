@@ -1,3 +1,7 @@
+import { desc } from "framer-motion/client";
+import { Award, Handshake, Scale, Lightbulb, ShieldCheck, LucideIcon } from "lucide-react";
+import { title } from "process";
+
 export const CATEGORIES = [
   { name: 'Pipa Rucika', img: '/images/product_category/cat_rucika.png', slug: 'pipa-rucika' },
   { name: 'Pipa Shuanglin', img: '/images/product_category/cat_shuanglin.png', slug: 'pipa-shuanglin' },
@@ -337,7 +341,6 @@ export const GALLERY = [
   "/images/gallery/11.JPG",
   "/images/gallery/12.JPG",
   "/images/gallery/13.JPG",
-
 ];
 
 export const NEWS = [
