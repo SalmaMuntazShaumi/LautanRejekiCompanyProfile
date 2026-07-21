@@ -22,9 +22,7 @@ const fadeInUp = {
   transition: { duration: 0.8 }
 };
 
-export default function Dashboard({ data }: { data: unknown }) {
-  void data;
-
+export default function Dashboard() {
   return (
     <>
       <HeroSlider />

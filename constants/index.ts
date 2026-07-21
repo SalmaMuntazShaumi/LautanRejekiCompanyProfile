@@ -1,7 +1,3 @@
-import { desc } from "framer-motion/client";
-import { Award, Handshake, Scale, Lightbulb, ShieldCheck, LucideIcon } from "lucide-react";
-import { title } from "process";
-
 export const CATEGORIES = [
   { name: 'Pipa Rucika', img: '/images/product_category/cat_rucika.png', slug: 'pipa-rucika' },
   { name: 'Pipa Shuanglin', img: '/images/product_category/cat_shuanglin.png', slug: 'pipa-shuanglin' },
@@ -50,20 +46,20 @@ export const KLIEN_LOGOS = [
 
 
 interface ProductSpecification {
-  kelasName?: string;         // The text for the chip (e.g., "AW")
-  kelasDescription?: string;  // The specific paragraph
-  specImage?: string;        // Path to the specific table image
+  kelasName?: string;
+  kelasDescription?: string;
+  specImage?: string;
 }
 
-interface Product{
-id: number;
+interface Product {
+  id: number;
   name: string;
   img: string;
   brand: string;
   desc?: string;
-  specs?: string; // This is the general description/specification, and is optional ('?')
+  specs?: string;
   advantages?: string[];
-  detailedSpecs?: ProductSpecification[]; // Optional
+  detailedSpecs?: ProductSpecification[];
   catalogUrl: string;
 }
 

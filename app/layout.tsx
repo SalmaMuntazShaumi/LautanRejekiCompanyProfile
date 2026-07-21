@@ -1,94 +1,37 @@
-"use client";
-
-import { useState } from "react";
+import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
-import { FaInstagram, FaWhatsapp, FaYoutube } from "react-icons/fa";
-import { AiFillTikTok } from "react-icons/ai";
-import { Menu, X } from "lucide-react";
-import Link from "next/link";
-import Image from "next/image";
-import { usePathname } from "next/navigation";
 import "@/styles/globals.css";
 
-const montserrat = Montserrat({ 
-  subsets: ["latin"], 
-  weight: ['400', '500', '600', '700'] 
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
 });
-export default function RootLayout({ children }: { children: React.ReactNode }) {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const pathname = usePathname();
 
-  // 1. Definisikan fungsi di sini agar bisa dipakai di dalam scope RootLayout
-  const getLinkStyle = (path: string) => {
-    const isActive = pathname === path || (path === "/Product" && pathname.startsWith("/Product"));
-    return isActive ? "active" : "";
-  };
+export const metadata: Metadata = {
+  title: {
+    default: "PT Lautan Rejeki",
+    template: "%s | PT Lautan Rejeki",
+  },
+  description:
+    "Distributor Pipa Terpercaya. Menyediakan produk berkualitas dari Rucika, Shuanglin, hingga Extrana untuk kebutuhan proyek Anda.",
+};
 
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
-    <html lang="en">
+    <html lang="id">
       <body className={montserrat.className}>
-        <header className="main-header">
-          <Link href="/" className="brand-link" aria-label="PT Lautan Rejeki">
-            <Image src="/images/logo_perusahaan.png" alt="Logo" width={210} height={70} priority className="company-logo" />
-          </Link>
+        <Header />
 
-          <nav className="desktop-nav">
-            <ul className="nav-list">
-              <li><Link href="/" className={getLinkStyle("/")}>Beranda</Link></li>
-              <li><Link href="/About" className={getLinkStyle("/About")}>Tentang</Link></li>
-              <li><Link href="/Product" className={getLinkStyle("/Product")}>Produk</Link></li>
-              <li><Link href="/Contact" className={getLinkStyle("/Contact")}>Kontak</Link></li>
-            </ul>
-          </nav>
+        <main>{children}</main>
 
-          <button className="mobile-menu-btn" onClick={() => setIsMenuOpen(!isMenuOpen)} aria-label="Buka menu navigasi" aria-expanded={isMenuOpen}>
-            {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
-          </button>
-
-          {isMenuOpen && (
-            <div className="mobile-menu-overlay">
-              <ul className="mobile-nav-list"> {/* Tambahkan class ini */}
-                <li onClick={() => setIsMenuOpen(false)}><Link href="/" className={getLinkStyle("/")}>Beranda</Link></li>
-                <li onClick={() => setIsMenuOpen(false)}><Link href="/About" className={getLinkStyle("/About")}>Tentang</Link></li>
-                <li onClick={() => setIsMenuOpen(false)}><Link href="/Product" className={getLinkStyle("/Product")}>Produk</Link></li>
-                <li onClick={() => setIsMenuOpen(false)}><Link href="/Contact" className={getLinkStyle("/Contact")}>Kontak</Link></li>
-              </ul>
-            </div>
-          )}
-        </header>
-
-        {children}
-
-        <footer className="main-footer">
-          <div className="footer-links-row">
-            {/* Pakai getLinkStyle di sini juga aman karena masih dalam satu scope */}
-            <Link href="/" className={getLinkStyle("/")}>Beranda</Link>
-            <Link href="/About" className={getLinkStyle("/About")}>Tentang</Link>
-            <Link href="/Product" className={getLinkStyle("/Product")}>Produk</Link>
-            <Link href="/Contact" className={getLinkStyle("/Contact")}>Kontak</Link>
-          </div>
-
-          <div className="footer-main-content">
-            <div className="footer-address">
-              <h3>PT LAUTAN REJEKI</h3>
-              <p>Jl. Meruya Ilir Raya No.1, RT.4/RW.1, Srengseng,<br />Kec. Kembangan, Jakarta Barat 11630</p>
-            </div>
-            
-            <div className="footer-socials">
-              {/* Link sosial media biasanya tidak butuh logika Active Link, jadi pakai plain Link saja */}
-              <Link href="https://wa.me/6287780450268?text=Halo%20Admin,%20saya%20ingin%20bertanya%20tentang%20katalog%20produk%20dan%20harga%20yang%20ditawarkan." 
-                target="_blank" 
-                rel="noopener noreferrer"
-                style={{ textDecoration: 'none' }} aria-label="WhatsApp PT Lautan Rejeki"><FaWhatsapp size={35} /></Link>
-              <Link href="https://www.instagram.com/lautanrejekigroupofficial" target="_blank" 
-                rel="noopener noreferrer" aria-label="Instagram PT Lautan Rejeki"><FaInstagram size={35} /></Link>
-              <Link href="https://www.youtube.com/@LautanRejekiOfficial" target="_blank" 
-                rel="noopener noreferrer" aria-label="YouTube PT Lautan Rejeki"><FaYoutube size={35} /></Link>
-              <Link href="https://www.tiktok.com/@lautanrejekigroup" target="_blank" 
-                rel="noopener noreferrer" aria-label="TikTok PT Lautan Rejeki"><AiFillTikTok size={35} /></Link>
-            </div>
-          </div>
-        </footer>
+        <Footer />
       </body>
     </html>
   );

@@ -67,8 +67,7 @@ export default function AboutPage() {
             fontWeight: '600',
             cursor: 'pointer',
             backgroundColor: 'transparent'
-          }}
-        >
+          }}>
           Lihat Semua
         </motion.button>
       </section>
@@ -85,8 +84,7 @@ export default function AboutPage() {
             display: "grid",
             gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
             gap: "1rem"
-          }}
-        >
+          }}>
           {GALLERY.map((img, i) => (
             <div key={i} style={{ position: "relative", aspectRatio: "1 / 1" }}>
               <Image src={img} alt={`gallery-${i}`} fill style={{ objectFit: "cover" }} />
@@ -159,8 +157,7 @@ export default function AboutPage() {
               onClick={() => {
                 setSelectedNews(item);
                 setShowAllNews(false); // 🔥 UX FIX
-              }}
-            >
+              }}>
               <div className="news-image">
                 <Image src={item.img} alt={item.title} fill style={{ objectFit: "cover" }} />
               </div>
@@ -247,8 +244,7 @@ export default function AboutPage() {
               borderRadius: '12px',
               overflow: 'hidden',
               padding: '0 5%'
-            }}
-          >
+            }}>
             {banners.map((banner) => (
               <SwiperSlide key={banner.id}>
                 
@@ -259,8 +255,7 @@ export default function AboutPage() {
                     height: '100%',
                     borderRadius: '15px',
                     overflow: 'hidden'
-                  }}
-                >
+                  }}>
 
                   {/* 1. Background Image */}
                   <Image
@@ -291,8 +286,7 @@ export default function AboutPage() {
                       textAlign: 'left',
                       zIndex: 2,
                       maxWidth: '80%'
-                    }}
-                  >
+                    }}>
                     <h2 style={{ fontSize: '2rem', fontWeight: 'bold' }}>
                       {banner.title}
                     </h2>
